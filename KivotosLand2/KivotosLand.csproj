@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C65B990-2C3E-4CEA-99BB-EF9002C3D674}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KivotosLand</RootNamespace>
+    <AssemblyName>KivotosLand</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GameScripts">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\GameScripts.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ShapesRuntime">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\ShapesRuntime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SokLoc">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\SokLoc.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\..\..\..\SteamLibrary\steamapps\common\Stacklands\Stacklands_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CardopediaHelper.cs" />
+    <Compile Include="GlobalValues.cs" />
+    <Compile Include="options\ModOptions.cs" />
+    <Compile Include="patches\BaseVillager_CanHaveCard_PATCH01.cs" />
+    <Compile Include="patches\CardopediaScreen_ClearScreen_PATCH01.cs" />
+    <Compile Include="patches\CardopediaScreen_SetTempDemoCard_PATCH01.cs" />
+    <Compile Include="patches\CardopediaScreen_Update_PATCH01.cs" />
+    <Compile Include="patches\CreatePackLine_CreateBoosterBoxes_PATCH01.cs" />
+    <Compile Include="patches\DebugScreen_SpawnFullCoinChest_PATCH01.cs" />
+    <Compile Include="patches\House_CanHaveCard_PATCH01.cs" />
+    <Compile Include="students\GSC_President.cs" />
+    <Compile Include="students\Kasumizawa_Miyu.cs" />
+    <Compile Include="ModLoad.cs" />
+    <Compile Include="patches\BaseVillager_DetermineCardFromStage_PATCH01.cs" />
+    <Compile Include="patches\BaseVillager_DetermineLifeStageFromAge_PATCH01.cs" />
+    <Compile Include="patches\BaseVillager_MyLifeStage_PATCH01.cs" />
+    <Compile Include="patches\EndOfMonthCutscenes_AnyVillagerWillChangeLifeStage_PATCH01.cs" />
+    <Compile Include="patches\GameCard_SetColors_PATCH01.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentStats.cs" />
+    <Compile Include="students\Rikuhachima_Aru.cs" />
+    <Compile Include="students\Shimoe_Koharu.cs" />
+    <Compile Include="students\Sorasaki_Hina.cs" />
+    <Compile Include="students\Takanashi_Hoshino.cs" />
+    <Compile Include="students\Tendou_Aris.cs" />
+    <Compile Include="Types.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\0SuperComicLib.Stacklands\0SuperComicLib.Stacklands.csproj">
+      <Project>{45a9d3f0-6a6d-4998-a9f0-a4fae2247a86}</Project>
+      <Name>0SuperComicLib.Stacklands</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
