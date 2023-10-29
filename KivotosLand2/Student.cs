@@ -49,11 +49,13 @@ namespace KivotosLand
 
             return 
                 otherCard.MyCardType == CardType.Equipable
-                ? CanHaveEquipable(otherCard)
+                ? CanHaveEquipable((Equipable)otherCard)
                 : otherCard is Food food
                 ? food.CanBePlacedOnVillager
                 : otherCard.Id == Cards.naming_stone;
         }
+
+        protected virtual bool CanHaveEquipable(Equipable equipable) => true;
 
         protected override void Awake()
         {
@@ -98,8 +100,6 @@ namespace KivotosLand
 
             InitStats();
         }
-
-        protected virtual bool CanHaveEquipable(CardData equipable) => true;
 
         public override int GetRequiredFoodCount() => 1;
 

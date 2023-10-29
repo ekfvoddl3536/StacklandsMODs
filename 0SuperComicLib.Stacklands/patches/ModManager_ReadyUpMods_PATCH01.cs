@@ -26,7 +26,7 @@ using System;
 namespace SuperComicLib.Stacklands
 {
     [HarmonyPatch(typeof(ModManager), "ReadyUpMods")]
-    public static class ModManager_ReadyUpMods_PATCH01
+    internal static class ModManager_ReadyUpMods_PATCH01
     {
         public static void Postfix()
         {

@@ -25,6 +25,9 @@ using System.Runtime.CompilerServices;
 
 namespace SuperComicLib.Stacklands
 {
+    /// <summary>
+    /// <see cref="ConfigEntry{T}"/> extension
+    /// </summary>
     public static class ConfigEntry_Extensions
     {
         /// <summary>

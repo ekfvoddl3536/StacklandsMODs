@@ -25,6 +25,9 @@ using UnityEngine;
 
 namespace SuperComicLib.Stacklands
 {
+    /// <summary>
+    /// <see cref="ConfigFile"/> extensions
+    /// </summary>
     public static class ConfigFile_Extensions
     {
         /// <summary>
