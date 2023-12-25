@@ -115,7 +115,9 @@
     <Compile Include="patches\CreatePackLine_CreateBoosterBoxes_PATCH01.cs" />
     <Compile Include="patches\DebugScreen_SpawnFullCoinChest_PATCH01.cs" />
     <Compile Include="patches\House_CanHaveCard_PATCH01.cs" />
+    <Compile Include="students\Ajitani_Hifumi.cs" />
     <Compile Include="students\GSC_President.cs" />
+    <Compile Include="students\Hayase_Yuuka.cs" />
     <Compile Include="students\Kasumizawa_Miyu.cs" />
     <Compile Include="ModLoad.cs" />
     <Compile Include="patches\BaseVillager_DetermineCardFromStage_PATCH01.cs" />
@@ -126,9 +128,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentStats.cs" />
+    <Compile Include="students\Misono_Mika.cs" />
+    <Compile Include="students\Natsume_Iroha.cs" />
     <Compile Include="students\Rikuhachima_Aru.cs" />
     <Compile Include="students\Shimoe_Koharu.cs" />
     <Compile Include="students\Sorasaki_Hina.cs" />
+    <Compile Include="students\Sunaookami_Shiroko.cs" />
     <Compile Include="students\Takanashi_Hoshino.cs" />
     <Compile Include="students\Tendou_Aris.cs" />
     <Compile Include="Types.cs" />

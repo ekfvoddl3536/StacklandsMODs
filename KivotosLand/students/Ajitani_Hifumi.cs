@@ -20,19 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using SuperComicLib.Stacklands;
-
 namespace KivotosLand
 {
-    internal static class ModOptions
+    public sealed class Ajitani_Hifumi : Student
     {
-        public static bool onDbg;
-        public static bool onFCR;
-
-        public static void Load(ConfigFile config)
-        {
-            onDbg = config.GetValue(nameof(onDbg), false, true);
-            onFCR = config.GetValue(nameof(onFCR), true, true);
-        }
+        internal override StudentStats BaseStats => new StudentStats(25, 23, 1.25f, 0.72f, 2);
     }
 }

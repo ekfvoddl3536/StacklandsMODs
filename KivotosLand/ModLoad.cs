@@ -51,7 +51,7 @@ namespace KivotosLand
                 var t = typeof(Combatable);
 
                 const BindingFlags FLAGS = BindingFlags.NonPublic | BindingFlags.Instance;
-                Student._AttackSpecialHit = t.GetField("AttackSpecialHit", FLAGS);
+                Student._AttackSpecialHit = t.GetField("AttackSpecialHit", FLAGS) ?? throw new FieldAccessException();
                 Student._PerformSpecialHit = (PerformSpecialHitDelegate)t.GetMethod("PerformSpecialHit", FLAGS).CreateDelegate(typeof(PerformSpecialHitDelegate));
                 Student._ShowHitText = (ShowHitTextDelegate)t.GetMethod("ShowHitText", FLAGS).CreateDelegate(typeof(ShowHitTextDelegate));
 
@@ -70,6 +70,8 @@ namespace KivotosLand
 
                 LogPhase(logger, 4);
 
+                PostModLoad();
+
                 this.PatchAllWithDependencies(Harmony, false);
                 Harmony.PatchAll();
 
@@ -81,9 +83,44 @@ namespace KivotosLand
             }
         }
 
+        private static void PostModLoad()
+        {
+            if (!ModOptions.noGacha)
+                return;
+
+            var _where = new Func<CardChance, bool>(CARDCHANCE_FILTER);
+            var _select = new Func<CardChance, CardChance>(CARDCHANCE_SELECTOR);
+
+            var datas = WorldManager.instance.GameDataLoader.BoosterpackDatas;
+            foreach (var data in datas)
+                if (data.BoosterId == "ba_gacha1_booster")
+                {
+                    foreach (var cardBag in data.CardBags)
+                    {
+                        var list = cardBag.Chances.Where(_where).Select(_select).ToList();
+                        list.Add(new CardChance(Cards.gold, 1));
+
+                        cardBag.Chances.Clear();
+                        cardBag.Chances = list;
+                    }
+
+                    break;
+                }
+
+            GC.Collect(0, GCCollectionMode.Default, false, false);
+        }
+
         private static void LogPhase(ModLogger logger, int phase) =>
             logger.Log(nameof(KivotosLand) + $" MOD Initialize... Phase {phase} / {MAX_PHASE}");
 
         private static bool CHEST_SELECTOR(CardData x) => x is Chest;
+
+        private static bool CARDCHANCE_FILTER(CardChance x) => x.Id.StartsWith("ba_");
+
+        private static CardChance CARDCHANCE_SELECTOR(CardChance x)
+        {
+            x.Chance = (int)Math.Min((long)x.Chance * 100_000, int.MaxValue);
+            return x;
+        }
     }
 }

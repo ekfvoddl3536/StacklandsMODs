@@ -33,6 +33,9 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Develop projects
+.dev/
+
 # Solution file
 *.sln
 

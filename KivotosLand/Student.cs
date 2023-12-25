@@ -55,7 +55,7 @@ namespace KivotosLand
                 : otherCard.Id == Cards.naming_stone;
         }
 
-        protected virtual bool CanHaveEquipable(Equipable equipable) => true;
+        protected virtual bool CanHaveEquipable(Equipable equipable) => equipable.Id != Cards.blunderbuss;
 
         protected override void Awake()
         {
