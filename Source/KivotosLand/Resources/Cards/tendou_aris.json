@@ -1,0 +1,15 @@
+{
+  "id": "ba_tendou_aris",
+  "nameTerm": "ba_tendou_aris_name",
+  "descriptionTerm": "ba_tendou_aris_description",
+  "icon": "Tendou_Aris.png",
+  "type": "Humans",
+  "script": "KivotosLand.Tendou_Aris",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

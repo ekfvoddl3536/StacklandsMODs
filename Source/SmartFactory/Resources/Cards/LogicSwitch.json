@@ -1,0 +1,16 @@
+{
+  "id": "sf_logic_switch",
+  "nameTerm": "sf_logic_switch_name",
+  "descriptionTerm": "sf_logic_switch_desc",
+  "icon": "LogicSwitch.png",
+  "script": "SmartFactory.LogicSwitch",
+  "type": "Structures",
+  "value": 5,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#F0F0F0",
+    "Color2": "#40AB50",
+    "Icon": "#000000"
+  }
+}

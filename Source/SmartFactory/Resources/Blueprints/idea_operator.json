@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_operator",
+  "nameTerm": "sf_blueprint_operator_name",
+  "group": "Building",
+  "subprints": [
+    {
+        "RequiredCards": "sf_silicon, sf_silicon, flint, any_villager",
+        "CardsToRemove": "sf_silicon, sf_silicon, flint",
+        "ResultCard": "sf_compute_operator",
+        "Time": 10,
+        "StatusTerm": "sf_blueprint_operator_status"
+    }
+  ]
+}

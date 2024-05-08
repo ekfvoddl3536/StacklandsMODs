@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\Build\common.props" />
+  
+  <PropertyGroup>
+    <AssemblyTitle>BiggerCapacity</AssemblyTitle>
+    
+    <Copyright>Copyright (c) 2023. SuperComic(ekfvoddl3535@naver.com)</Copyright>
+  </PropertyGroup>
+  
+  <Import Project="..\..\Build\includes.props" />
+  
+  <ItemGroup>
+    <ProjectReference Include="..\0SuperComicLib.Stacklands\0SuperComicLib.Stacklands.csproj" />
+  </ItemGroup>
+  
+</Project>

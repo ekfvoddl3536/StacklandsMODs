@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_compute_field",
+  "nameTerm": "sf_blueprint_compute_field_name",
+  "group": "Building",
+  "subprints": [
+    {
+        "RequiredCards": "sf_silicon, sf_silicon, stone, stone, any_villager",
+        "CardsToRemove": "sf_silicon, sf_silicon, stone, stone",
+        "ResultCard": "sf_compute_operator",
+        "Time": 10,
+        "StatusTerm": "sf_blueprint_compute_field_status"
+    }
+  ]
+}

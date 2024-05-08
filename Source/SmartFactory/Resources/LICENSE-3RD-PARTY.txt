@@ -1,6 +1,28 @@
-MIT License
+ICONS
 
-Copyright (c) 2023-2024 SuperComic(ekfvoddl3535@naver.com)
+
+>> iconoir (https://github.com/iconoir-icons/iconoir)
+    Include:
+        * 3rd-cpu.png
+        * 3rd-calculator.png
+        * 3rd-electronics-transistor.png
+        * 3rd-magnet-energy.png
+        * 3rd-3d-center-box.png
+    
+    Copyright (c) 2021 Luca Burgio
+    The MIT License, https://opensource.org/licenses/MIT
+
+
+
+
+
+
+
+
+=============================================================================
+						LICENSE TEXTS
+=============================================================================
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

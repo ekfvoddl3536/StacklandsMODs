@@ -35,9 +35,13 @@ bld/
 
 # Develop projects
 .dev/
+Artifacts/
+Library/
 
-# Solution file
+# Solution file +Custom files
 *.sln
+*.bak
+*.code-workspace
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

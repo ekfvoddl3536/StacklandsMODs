@@ -1,0 +1,5 @@
+Term	Notes	Korean	Japanese	English
+op_resMax_name		자원 상자 최대 크기	リソースボックスの最大サイズ	Resource Chest Maximum Capacity
+op_resMax_tooltip		자원 상자에 보관 가능한 자원의 최대 개수	リソースボックスに保管可能なリソースの最大個数	Maximum number of resources that can be stored in a resource chest
+op_coinMax_name		코인 상자 최대 크기	コインボックスの最大サイズ	Coin Chest Maximum Capacity
+op_coinMax_tooltip		코인 상자에 보관 가능한 코인의 최대 개수	コインボックスに保管可能なコインの最大個数	Maximum number of coins that can be stored in a coin chest

@@ -1,0 +1,16 @@
+{
+  "id": "sf_compute_operator",
+  "nameTerm": "sf_compute_operator_name",
+  "descriptionTerm": "sf_compute_operator_desc",
+  "icon": "Operator.png",
+  "script": "SmartFactory.ComputeOperator",
+  "type": "Structures",
+  "value": 0,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#F0F0F0",
+    "Color2": "#FF7575",
+    "Icon": "#000000"
+  }
+}

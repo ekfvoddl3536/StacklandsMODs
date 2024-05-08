@@ -1,0 +1,15 @@
+{
+  "id": "ba_takanashi_hoshino",
+  "nameTerm": "ba_takanashi_hoshino_name",
+  "descriptionTerm": "ba_takanashi_hoshino_description",
+  "icon": "Takanashi_Hoshino.png",
+  "type": "Humans",
+  "script": "KivotosLand.Takanashi_Hoshino",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

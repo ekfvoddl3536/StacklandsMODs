@@ -1,0 +1,17 @@
+{
+  "id": "sf_number_constant",
+  "nameTerm": "sf_number_constant_name",
+  "descriptionTerm": "sf_number_constant_desc",
+  "icon": "Constant.png",
+  "script": "SmartFactory.ConstantCard",
+  "type": "Structures",
+  "value": 0,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#3080F8",
+    "Color2": "#64B4FF",
+    "Icon": "#000000"
+  },
+  "_constValue": 0
+}

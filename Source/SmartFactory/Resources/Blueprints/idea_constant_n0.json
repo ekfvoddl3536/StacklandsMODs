@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_constant_n0",
+  "nameTerm": "sf_blueprint_constant_n0_name",
+  "group": "Building",
+  "subprints": [
+    {
+        "RequiredCards": "sf_silicon, wood, any_villager",
+        "CardsToRemove": "sf_silicon, wood",
+        "ResultCard": "sf_number_constant",
+        "Time": 3,
+        "StatusTerm": "sf_blueprint_constant_n0_status"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "id": "sf_silicon",
+    "nameTerm": "sf_silicon_name",
+    "descriptionTerm": "sf_silicon_desc",
+    "icon": "Silicon.png",
+    "script": "Resource",
+    "type": "Resources",
+    "value": 5
+  }

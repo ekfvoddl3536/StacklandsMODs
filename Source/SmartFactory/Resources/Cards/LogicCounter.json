@@ -1,0 +1,16 @@
+{
+  "id": "sf_logic_counter",
+  "nameTerm": "sf_logic_counter_name",
+  "descriptionTerm": "sf_logic_counter_desc",
+  "icon": "LogicCounter.png",
+  "script": "SmartFactory.LogicCounter",
+  "type": "Structures",
+  "value": 5,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#F0F0F0",
+    "Color2": "#40AB50",
+    "Icon": "#000000"
+  }
+}

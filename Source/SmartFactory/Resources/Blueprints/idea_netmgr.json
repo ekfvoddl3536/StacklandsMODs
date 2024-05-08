@@ -1,0 +1,14 @@
+{
+    "id": "sf_blueprint_netmgr",
+    "nameTerm": "sf_blueprint_netmgr_name",
+    "group": "Building",
+    "subprints": [
+      {
+          "RequiredCards": "sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon, any_villager",
+          "CardsToRemove": "sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon, sf_silicon",
+          "ResultCard": "sf_netmgr",
+          "Time": 60,
+          "StatusTerm": "sf_blueprint_netmgr_status"
+      }
+    ]
+  }

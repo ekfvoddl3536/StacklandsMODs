@@ -1,0 +1,120 @@
+{
+  "id": "ba_gacha1_booster",
+  "nameTerm": "ba_gacha1_booster_name",
+  "minQuestCount": 0,
+  "cost": 120,
+  "icon": "Gacha1.png",
+  "location": "Mainland",
+  "cardBags": [
+    {
+	  "CardBagType": "Chances",
+	  "CardsInPack": 1,
+      "SetCardBag": "SpecialResources",
+      "Chances": [
+		{
+          "Id": "ba_kasumizawa_miyu",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_rikuhachima_aru",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_shimoe_koharu",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_sorasaki_hina",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_takanashi_hoshino",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_tendou_aris",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_hayase_yuuka",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_misono_mika",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_sunaookami_shiroko",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_natsume_iroha",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_ajitani_hifumi",
+          "Chance": 30,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "ba_gsc_president",
+          "Chance": 10,
+		  "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+		{
+          "Id": "gold",
+          "Chance": 990,
+          "HasMaxCount": false,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        }
+      ]
+    }
+  ]
+}

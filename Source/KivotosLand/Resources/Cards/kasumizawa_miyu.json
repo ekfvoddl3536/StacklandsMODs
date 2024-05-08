@@ -1,0 +1,15 @@
+{
+  "id": "ba_kasumizawa_miyu",
+  "nameTerm": "ba_kasumizawa_miyu_name",
+  "descriptionTerm": "ba_kasumizawa_miyu_description",
+  "icon": "Kasumizawa_Miyu.png",
+  "type": "Humans",
+  "script": "KivotosLand.Kasumizawa_Miyu",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

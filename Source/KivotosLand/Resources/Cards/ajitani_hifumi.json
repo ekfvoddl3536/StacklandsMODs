@@ -1,0 +1,15 @@
+{
+  "id": "ba_ajitani_hifumi",
+  "nameTerm": "ba_ajitani_hifumi_name",
+  "descriptionTerm": "ba_ajitani_hifumi_description",
+  "icon": "Ajitani_Hifumi.png",
+  "type": "Humans",
+  "script": "KivotosLand.Ajitani_Hifumi",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

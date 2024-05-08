@@ -1,0 +1,15 @@
+{
+  "id": "ba_hayase_yuuka",
+  "nameTerm": "ba_hayase_yuuka_name",
+  "descriptionTerm": "ba_hayase_yuuka_description",
+  "icon": "Hayase_Yuuka.png",
+  "type": "Humans",
+  "script": "KivotosLand.Hayase_Yuuka",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

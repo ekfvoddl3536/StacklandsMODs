@@ -1,0 +1,15 @@
+{
+  "id": "ba_gsc_president",
+  "nameTerm": "ba_gsc_president_name",
+  "descriptionTerm": "ba_gsc_president_description",
+  "icon": "GSC_President.png",
+  "type": "Humans",
+  "script": "KivotosLand.GSC_President",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

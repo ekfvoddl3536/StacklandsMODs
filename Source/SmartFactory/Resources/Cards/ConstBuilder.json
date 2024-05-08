@@ -1,0 +1,16 @@
+{
+    "id": "sf_const_builder",
+    "nameTerm": "sf_const_builder_name",
+    "descriptionTerm": "sf_const_builder_desc",
+    "icon": "ConstBuilder.png",
+    "script": "SmartFactory.ConstantBuilder",
+    "type": "Structures",
+    "value": 5,
+    "_IsShiny": false,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+      "Color": "#F0F0F0",
+      "Color2": "#40AB50",
+      "Icon": "#000000"
+    }
+  }

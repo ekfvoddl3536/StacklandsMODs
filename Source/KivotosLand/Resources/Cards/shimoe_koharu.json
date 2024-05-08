@@ -1,0 +1,15 @@
+{
+  "id": "ba_shimoe_koharu",
+  "nameTerm": "ba_shimoe_koharu_name",
+  "descriptionTerm": "ba_shimoe_koharu_description",
+  "icon": "Shimoe_Koharu.png",
+  "type": "Humans",
+  "script": "KivotosLand.Shimoe_Koharu",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

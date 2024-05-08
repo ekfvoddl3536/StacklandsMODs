@@ -1,0 +1,15 @@
+{
+  "id": "ba_sorasaki_hina",
+  "nameTerm": "ba_sorasaki_hina_name",
+  "descriptionTerm": "ba_sorasaki_hina_description",
+  "icon": "Sorasaki_Hina.png",
+  "type": "Humans",
+  "script": "KivotosLand.Sorasaki_Hina",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

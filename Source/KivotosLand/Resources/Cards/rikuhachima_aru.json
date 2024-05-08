@@ -1,0 +1,15 @@
+{
+  "id": "ba_rikuhachima_aru",
+  "nameTerm": "ba_rikuhachima_aru_name",
+  "descriptionTerm": "ba_rikuhachima_aru_description",
+  "icon": "Rikuhachima_Aru.png",
+  "type": "Humans",
+  "script": "KivotosLand.Rikuhachima_Aru",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

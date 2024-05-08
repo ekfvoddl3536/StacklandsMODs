@@ -1,0 +1,17 @@
+{
+  "id": "sf_compute_field",
+  "nameTerm": "sf_compute_field_name",
+  "descriptionTerm": "sf_compute_field_desc",
+  "icon": "ComputeField.png",
+  "script": "SmartFactory.ComputeField",
+  "type": "Structures",
+  "value": 10,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#F0F0F0",
+    "Color2": "#FF7575",
+    "Icon": "#000000"
+  },
+  "_RectBackground": true
+}

@@ -1,0 +1,16 @@
+{
+    "id": "sf_netmgr",
+    "nameTerm": "sf_netmgr_name",
+    "descriptionTerm": "sf_netmgr_desc",
+    "icon": "NetworkManager.png",
+    "script": "SmartFactory.LogicNetworkManager",
+    "type": "Structures",
+    "value": 15,
+    "_IsShiny": false,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+      "Color": "#FFFFFF",
+      "Color2": "#FE4747",
+      "Icon": "#000000"
+    }
+  }

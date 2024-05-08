@@ -1,0 +1,15 @@
+{
+  "id": "ba_misono_mika",
+  "nameTerm": "ba_misono_mika_name",
+  "descriptionTerm": "ba_misono_mika_description",
+  "icon": "Misono_Mika.png",
+  "type": "Humans",
+  "script": "KivotosLand.Misono_Mika",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

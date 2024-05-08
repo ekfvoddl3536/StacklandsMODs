@@ -1,6 +1,32 @@
-MIT License
+MY PROJECT LICENSES
 
-Copyright (c) 2023-2024 SuperComic(ekfvoddl3535@naver.com)
+
+>> 0SuperComicLibs (https://github.com/ekfvoddl3536/0SuperComicLibs)
+    Include:
+        - 0SuperComicLib.Core
+        - 1SuperComicLib.Runtime
+        - 2SuperComicLib.Runtime.Managed
+    
+    Copyright (c) 2019-2024. SuperComic <ekfvoddl3535@naver.com>
+	The MIT License, https://opensource.org/licenses/MIT
+
+
+
+>> FluxIOLib (https://github.com/ekfvoddl3536/fluxiolib)
+    Include:
+        - fluxiolib
+    
+    Copyright (c) 2024 SuperComic(ekfvoddl3535@naver.com)
+    The MIT License, https://opensource.org/licenses/MIT
+
+
+
+
+
+=============================================================================
+						LICENSE TEXTS
+=============================================================================
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

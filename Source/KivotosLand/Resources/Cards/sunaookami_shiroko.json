@@ -1,0 +1,15 @@
+{
+  "id": "ba_sunaookami_shiroko",
+  "nameTerm": "ba_sunaookami_shiroko_name",
+  "descriptionTerm": "ba_sunaookami_shiroko_description",
+  "icon": "Sunaookami_Shiroko.png",
+  "type": "Humans",
+  "script": "KivotosLand.Sunaookami_Shiroko",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

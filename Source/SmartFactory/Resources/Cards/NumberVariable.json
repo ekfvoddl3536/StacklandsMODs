@@ -1,0 +1,16 @@
+{
+  "id": "sf_number_variable",
+  "nameTerm": "sf_number_variable_name",
+  "descriptionTerm": "sf_number_variable_desc",
+  "icon": "Variables.png",
+  "script": "SmartFactory.VariableCard",
+  "type": "Structures",
+  "value": 0,
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#3080F8",
+    "Color2": "#64B4FF",
+    "Icon": "#000000"
+  }
+}

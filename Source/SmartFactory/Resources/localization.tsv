@@ -1,0 +1,45 @@
+Term	Notes	Korean	English
+sf_silicon_name		실리콘	Silicon
+sf_silicon_desc		프로세서를 제작할 때에 자주 사용되는 모래의 종류	Silicon
+sf_netmgr_name		네트워크 연산기	Network Processor
+sf_netmgr_desc		모든 논리 카드를 연산하는 연산기 입니다.	Perform logic network operations.
+sf_compute_field_name		컴퓨팅 필드	Computing Field
+sf_compute_field_desc		쌓인 숫자 값을 계산합니다.	Perform math.
+sf_number_constant_name		C:	C:
+sf_number_constant_desc		상수 입니다.	Constant
+sf_number_variable_name		V: 변수	V: Variable
+sf_number_variable_desc		입력 값에 따라 달라지는 변수입니다.	Variable number
+sf_logic_counter_name		논리 계수기	Logic Counter
+sf_logic_counter_desc		쌓인 아이템의 개수를 세어 논리 회로망에 값을 전달합니다. 	Logic Counter
+sf_logic_switch_name		논리 스위치	Logic Switch
+sf_logic_switch_desc		입력된 값에 따라 연결된 대상 카드의 활성화를 제어합니다.	tag0001
+sf_compute_operator_name		연산자	Operator
+sf_compute_operator_desc		연산을 수행합니다.	Perform operation
+sf_const_builder_name		상수 작성기	Constant Builder
+sf_const_builder_desc		상수를 만듭니다.	Create constant
+op_updateInterval_name		네트워크 연산 주기	Network Update Interval
+op_updateInterval_tooltip		네트워크 연산을 수행할 주기(초 단위) 입니다. 범위: 0.0 ~ 1.0	This is the interval (in seconds) for performing network operations. Range: 0.0 ~ 1.0
+op_onDebug_name		디버그 모드	Enable Debug Mode
+op_onDebug_tooltip		디버그 모드를 활성화 합니다.	Enable debug mode
+op_onBatchUpdates_name		배치 분할 네트워크 연산	Enable Batched Network Updates
+op_onBatchUpdates_tooltip		네트워크 연산을 여러 프레임에 나누어서 수행하는 기능입니다.	This function divides network operations across multiple frames.
+op_maxBatchSize_name		최대 배치 크기	Max Batch Size
+op_maxBatchSize_tooltip		네트워크 분할 연산을 수행할 때 한 프레임에서 처리할 최대 노드 개수입니다. 범위: 100 ~ 2147483647	This is the maximum number of nodes to process in one frame during batch network operations. Range: 100 ~ 2147483647
+op_maxConnLen_name		연결 최대 거리	Max Connection Distance
+op_maxConnLen_tooltip		노드 간 연결이 가능한 최대 거리를 설정합니다. 범위: 0.0 ~ 50.0	This sets the maximum distance for connections between nodes. Range: 0.0 ~ 50.0
+op_maxComputeStack_name		최대 계산 스택	Max Evaluation Stack
+op_maxComputeStack_tooltip		컴퓨팅 필드에서 허용할 최대 계산 스택의 크기입니다. 범위: 8 ~ 120	This is the maximum size of the computation stack allowed in the compute field. Range: 8 ~ 120
+sf_blueprint_silicon_name		실리콘	Slicon
+sf_blueprint_silicon_status		모래에 핫한 마법을 더하는 중...	Making slicon...
+sf_blueprint_compute_field_name		컴퓨팅 필드	Computing Field
+sf_blueprint_compute_field_status		무언가 신기한 기계 장치가 만들어지고 있는 중...	Making computing field...
+sf_blueprint_constant_n0_name		상수: 0	Constant: 0
+sf_blueprint_constant_n0_status		상수를 만들고 있어요.	Making constant...
+sf_blueprint_constant_n1_name		상수: 1	Constant: 1
+sf_blueprint_netmgr_name		네트워크 연산기	Network Processor
+sf_blueprint_netmgr_status		실리콘을 프로세서로 만드는 중...	Making network processor...
+sf_blueprint_constbuilder_name		상수 작성기	Constant Builder
+sf_blueprint_constbuilder_status		상수를 만드는 기계를 만드는 중...	Making constant builder...
+sf_blueprint_operator_name		연산자	Operator
+sf_blueprint_operator_status		연산자 만드는 중...	Making operator...
+label_constbuilder_status		상수를 만드는 중...	Making constant...

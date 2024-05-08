@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_silicon",
+  "nameTerm": "sf_blueprint_silicon_name",
+  "group": "Resources",
+  "subprints": [
+    {
+        "RequiredCards": "smelter, sand, sand, sand, charcoal",
+        "CardsToRemove": "sand, sand, sand, charcoal",
+        "ResultCard": "sf_silicon",
+        "Time": 15,
+        "StatusTerm": "sf_blueprint_silicon_status"
+    }
+  ]
+}

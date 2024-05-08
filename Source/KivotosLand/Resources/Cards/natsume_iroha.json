@@ -1,0 +1,15 @@
+{
+  "id": "ba_natsume_iroha",
+  "nameTerm": "ba_natsume_iroha_name",
+  "descriptionTerm": "ba_natsume_iroha_description",
+  "icon": "Natsume_Iroha.png",
+  "type": "Humans",
+  "script": "KivotosLand.Natsume_Iroha",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

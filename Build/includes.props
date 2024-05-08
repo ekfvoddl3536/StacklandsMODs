@@ -1,0 +1,32 @@
+<Project>
+    
+    <ItemGroup>
+      <Compile Remove="Resources\**" />
+      <EmbeddedResource Remove="Resources\**" />
+      <None Remove="Resources\**" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Reference Include="0Harmony">
+          <HintPath>..\..\Library\bin\0Harmony.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="GameScripts">
+          <HintPath>..\..\Library\bin\GameScripts.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="SokLoc">
+          <HintPath>..\..\Library\bin\SokLoc.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+          <HintPath>..\..\Library\bin\UnityEngine.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\Library\bin\UnityEngine.CoreModule.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    
+</Project>

@@ -1,0 +1,14 @@
+{
+    "id": "sf_blueprint_constbuilder",
+    "nameTerm": "sf_blueprint_constbuilder_name",
+    "group": "Building",
+    "subprints": [
+      {
+          "RequiredCards": "sf_silicon, sf_silicon, iron_bar, iron_bar, any_villager",
+          "CardsToRemove": "sf_silicon, sf_silicon, iron_bar, iron_bar",
+          "ResultCard": "sf_const_builder",
+          "Time": 60,
+          "StatusTerm": "sf_blueprint_constbuilder_status"
+      }
+    ]
+  }
