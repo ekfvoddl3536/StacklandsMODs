@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_logic_counter",
+  "nameTerm": "sf_blueprint_logic_counter_name",
+  "group": "Building",
+  "subprints": [
+    {
+        "RequiredCards": "sf_silicon, sf_silicon, plank, plank, plank, plank, plank, gold, gold, gold, gold, gold, any_villager",
+        "CardsToRemove": "sf_silicon, sf_silicon, plank, plank, plank, plank, plank, gold, gold, gold, gold, gold",
+        "ResultCard": "sf_logic_counter",
+        "Time": 30,
+        "StatusTerm": "sf_blueprint_logic_counter_status"
+    }
+  ]
+}

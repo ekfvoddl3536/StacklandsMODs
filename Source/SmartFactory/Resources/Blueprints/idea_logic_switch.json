@@ -1,0 +1,14 @@
+{
+  "id": "sf_blueprint_logic_switch",
+  "nameTerm": "sf_blueprint_logic_switch_name",
+  "group": "Building",
+  "subprints": [
+    {
+        "RequiredCards": "sf_silicon, sf_silicon, brick, brick, brick, brick, brick, gold, gold, gold, gold, gold, any_villager",
+        "CardsToRemove": "sf_silicon, sf_silicon, brick, brick, brick, brick, brick, gold, gold, gold, gold, gold",
+        "ResultCard": "sf_logic_switch",
+        "Time": 30,
+        "StatusTerm": "sf_blueprint_logic_switch_status"
+    }
+  ]
+}

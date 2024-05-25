@@ -27,7 +27,19 @@ namespace SmartFactory
 {
     partial class LogicBase
     {
-        public override void UpdateCardText()
+        public sealed override void UpdateCardText() { }
+
+        public sealed override void UpdateCard()
+        {
+            if (MyGameCard.IsDemoCard || !MyGameCard.MyBoard.IsCurrent)
+                return;
+
+            base.UpdateCard();
+
+            OnUpdateCard();
+        }
+
+        protected virtual void OnUpdateCard()
         {
             NetworkArrows.ReDraw(this);
 

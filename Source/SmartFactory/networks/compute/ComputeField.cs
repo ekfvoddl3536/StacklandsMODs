@@ -74,7 +74,7 @@ namespace SmartFactory
                 if (item.StackPop > compStack.Count ||
                     compStack.Count >= ModOptions.maxComputeStack)
                 {
-                    stateFlags |= 1;
+                    stateFlags = 1;
                     return 0;
                 }
 

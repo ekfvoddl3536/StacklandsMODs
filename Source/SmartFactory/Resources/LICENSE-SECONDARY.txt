@@ -4,8 +4,6 @@ MY PROJECT LICENSES
 >> 0SuperComicLibs (https://github.com/ekfvoddl3536/0SuperComicLibs)
     Include:
         - 0SuperComicLib.Core
-        - 1SuperComicLib.Runtime
-        - 2SuperComicLib.Runtime.Managed
     
     Copyright (c) 2019-2024. SuperComic <ekfvoddl3535@naver.com>
 	The MIT License, https://opensource.org/licenses/MIT

@@ -41,7 +41,7 @@ namespace SmartFactory
         #endregion
 
         #region interface
-        ComputeType IComputable.ComputeType => ComputeType.Constant;
+        ComputeType IComputable.ComputeType => ComputeType.Variable;
         int IComputable.StackPop => 0;
         int IComputable.ComputeValue(in ComputeStack<int> stack) => varValue;
         #endregion

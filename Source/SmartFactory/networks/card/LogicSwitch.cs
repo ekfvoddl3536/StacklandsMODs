@@ -29,34 +29,34 @@ namespace SmartFactory
     {
         [ExtraData("switchValue")]
         public bool m_ison;
-
+        
         protected override void Awake()
         {
             if (Inputs == null || Inputs.Length != 1)
                 Inputs = new LogicType[1] { LogicType.Any };
-
+        
             Outputs = Array.Empty<LogicType>();
-
+        
             base.Awake();
         }
 
-        public override void UpdateCardText()
+        protected override void OnUpdateCard()
         {
             if (_target != (object)null)
                 NetworkArrows.DrawArrow(this, _target);
 
-            base.UpdateCardText();
+            base.OnUpdateCard();
         }
-
+        
         protected override int GetNextOutputValue() => 0;
         protected override void SetInputValue(int newInputValue)
         {
             var v = newInputValue != 0;
-
+        
             if (m_ison != v)
             {
                 m_ison = v;
-
+        
                 if (_target != (object)null)
                     SetOperation(_target, v);
             }
@@ -67,7 +67,7 @@ namespace SmartFactory
             m_ison = true;
             SetOperation(other, true);
         }
-
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void SetOperation(CardData c, bool ison)
         {

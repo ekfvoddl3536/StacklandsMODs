@@ -6,7 +6,7 @@
     {
         "RequiredCards": "sf_silicon, sf_silicon, stone, stone, any_villager",
         "CardsToRemove": "sf_silicon, sf_silicon, stone, stone",
-        "ResultCard": "sf_compute_operator",
+        "ResultCard": "sf_compute_field",
         "Time": 10,
         "StatusTerm": "sf_blueprint_compute_field_status"
     }

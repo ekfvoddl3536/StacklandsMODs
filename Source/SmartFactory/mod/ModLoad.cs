@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 using System;
+using System.Linq;
 using SuperComicLib.Runtime;
 using SuperComicLib.Stacklands;
 
@@ -54,7 +55,6 @@ namespace SmartFactory
 
                 LogPhase(5, "Post Load");
                 PostLoad();
-
 
                 Logger.Log(nameof(SmartFactory) + " MOD Loaded!");
             }

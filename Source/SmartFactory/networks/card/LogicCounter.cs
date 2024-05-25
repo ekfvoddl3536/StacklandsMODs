@@ -38,12 +38,13 @@ namespace SmartFactory
             base.Awake();
         }
 
-        public override void UpdateCardText()
+
+        protected override void OnUpdateCard()
         {
             if (_target != (object)null)
                 NetworkArrows.DrawArrow(_target, this);
 
-            base.UpdateCardText();
+            base.OnUpdateCard();
         }
 
         protected override void SetInputValue(int newInputValue) { }

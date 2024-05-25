@@ -23,7 +23,6 @@
 using SuperComicLib.Runtime;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using UnityEngine.InputSystem;
 
 namespace SmartFactory
 {

@@ -85,7 +85,7 @@ namespace SmartFactory
 
         protected override int GetNextOutputValue() => 0;
 
-        public override void UpdateCardText()
+        protected override void OnUpdateCard()
         {
             // has input node
             if (allowUpdate && CanInputsConnect == false)
