@@ -56,7 +56,8 @@ namespace SmartFactory
         {
             var myPos = MyGameCard.transform.position;
 
-            ref var ntFirst = ref types.refdata();
+            // @DISABLE_NO_CHECK
+            // ref var ntFirst = ref types.refdata();
             for (int i = 0; i < nodes.Length; ++i)
             {
                 var item = nodes[i];
@@ -64,7 +65,10 @@ namespace SmartFactory
                     _GetDistance(item, myPos) <= ModOptions.maxConnLen)
                     continue;
 
-                Unsafe.Add(ref ntFirst, i) &= ~LogicType.Connected;
+                // @DISABLE_NO_CHECK
+                // Unsafe.Add(ref ntFirst, i) &= ~LogicType.Connected;
+                types[i] &= ~LogicType.Connected;
+
                 nodes[i] = default;
             }
         }

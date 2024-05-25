@@ -38,9 +38,15 @@ namespace SuperComicLib.Stacklands.Collections
             Count = 0;
         }
 
-        public readonly ref T FirstElementByRef => ref _items!.refdata();
+        public readonly ref T FirstElementByRef =>
+            // @DISABLE_NO_CHECK
+            // ref _items!.refdata();
+            ref _items[0];
 
-        public void Push(T value) => _items!.refdata(Count++) = value;
+        public void Push(T value) =>
+            // @DISABLE_NO_CHECK
+            // _items!.refdata(Count++) = value;
+            _items[Count++] = value;
 
         public void Clear()
         {

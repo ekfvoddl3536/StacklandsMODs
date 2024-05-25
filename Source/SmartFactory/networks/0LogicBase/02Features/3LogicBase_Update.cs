@@ -71,19 +71,26 @@ namespace SmartFactory
             int nextOutputValue = GetNextOutputValue();
 
             var outputs = Outputs;
-            // next types
-            ref var ntFirst = ref outputs.refdata();
-            // next nodes
-            ref var nnFirst = ref OutputNodes.refdata();
+            // @DISABLE_NO_CHECK
+            // // next types
+            // ref var ntFirst = ref outputs.refdata();
+            // // next nodes
+            // ref var nnFirst = ref OutputNodes.refdata();
 
             // 값 전파
             for (int i = 0; i < outputs.Length; ++i)
-                if (Unsafe.Add(ref ntFirst, i) < 0) // isConnected?
+                if (outputs[i] < 0) // isConnected?
                 {
-                    ref var item = ref Unsafe.Add(ref nnFirst, i);
-
-                    item.SetInputValue(nextOutputValue);
+                    OutputNodes[i].SetInputValue(nextOutputValue);
                 }
+
+                // @DISABLE_NO_CHECK
+                // if (Unsafe.Add(ref ntFirst, i) < 0) // isConnected?
+                // {
+                //     ref var item = ref Unsafe.Add(ref nnFirst, i);
+                // 
+                //     item.SetInputValue(nextOutputValue);
+                // }
         }
     }
 }

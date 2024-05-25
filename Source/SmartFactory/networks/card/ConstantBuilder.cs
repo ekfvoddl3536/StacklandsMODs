@@ -66,7 +66,9 @@ namespace SmartFactory
 
         protected override void SetInputValue(int newInputValue)
         {
-            var field = (ComputeField)InputNodes.refdata();
+            // @DISABLE_NO_CHECK
+            // var field = (ComputeField)InputNodes.refdata();
+            var field = (ComputeField)InputNodes[0];
 
             allowUpdate = field.StateFlags == 0;
             if (allowUpdate == false)

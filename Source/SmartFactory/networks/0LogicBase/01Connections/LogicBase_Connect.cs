@@ -48,7 +48,9 @@ namespace SmartFactory
                 {
                     nodes[i] = otherCard;
 
-                    types.refdata(i) |= LogicType.Connected;
+                    // @DISABLE_NO_CHECK
+                    // types.refdata(i) |= LogicType.Connected;
+                    types[i] |= LogicType.Connected;
 
                     break;
                 }

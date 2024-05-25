@@ -69,17 +69,28 @@ namespace SmartFactory
                     .Where(x => x.CardData is LogicBase)
                     .ForAll(x =>
                     {
-                        ref var inref = ref inres.refdata();
-                        ref var outref = ref outres.refdata();
+                        // @DISABLE_NO_CHECK
+                        // ref var inref = ref inres.refdata();
+                        // ref var outref = ref outres.refdata();
+                        // 
+                        // var inidx = ins.AsSpan().IndexOf(x.CardData.UniqueId);
+                        // if (inidx >= 0)
+                        //     Unsafe.Add(ref inref, inidx) = (LogicBase)x.CardData;
+                        // else
+                        // {
+                        //     var outidx = outs.AsSpan().IndexOf(x.CardData.UniqueId);
+                        //     if (outidx >= 0)
+                        //         Unsafe.Add(ref outref, outidx) = (LogicBase)x.CardData;
+                        // }
 
                         var inidx = ins.AsSpan().IndexOf(x.CardData.UniqueId);
                         if (inidx >= 0)
-                            Unsafe.Add(ref inref, inidx) = (LogicBase)x.CardData;
+                            inres[inidx] = (LogicBase)x.CardData;
                         else
                         {
                             var outidx = outs.AsSpan().IndexOf(x.CardData.UniqueId);
                             if (outidx >= 0)
-                                Unsafe.Add(ref outref, outidx) = (LogicBase)x.CardData;
+                                outres[outidx] = (LogicBase)x.CardData;
                         }
                     });
 
