@@ -10,7 +10,7 @@ SET DEST_PATH="%LOCALAPPDATA%Low\sokpop\Stacklands\Mods"
 
 SET P_REBUILD=0
 SET P_CONFIG="Release"
-SET P_PROJNAME=""
+SET "P_PROJNAME="
 
 :_PARSE_
 REM Drop first argument

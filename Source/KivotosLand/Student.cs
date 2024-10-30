@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
@@ -105,16 +106,26 @@ namespace KivotosLand
 
         public override void UpdateCardText()
         {
-            var descText =
-                SokLoc.Translate(DescriptionTerm) + 
-                $"\n\n<i>{GetCombatableDescription()}</i>";
-
-            if (AdvancedSettingsScreen.AdvancedCombatStatsEnabled || GameCanvas.instance.CurrentScreen is CardopediaScreen)
-                descText += $"\n\n<i>{GetCombatableDescriptionAdvanced()}</i>";
-
-            descriptionOverride = descText;
-
             nameOverride = SokLoc.Translate(NameTerm);
+
+            if (BaseCombatStats != null && BaseCombatStats.SpecialHits != null)
+            {
+                var descText =
+                    SokLoc.Translate(DescriptionTerm) +
+                    $"\n\n<i>{GetCombatableDescription()}</i>";
+
+                if (AdvancedSettingsScreen.AdvancedCombatStatsEnabled || GameCanvas.instance.CurrentScreen is CardopediaScreen)
+                    descText += $"\n\n<i>{GetCombatableDescriptionAdvanced()}</i>";
+
+                descriptionOverride = descText;
+            }
+
+            var gc = MyGameCard;
+            if (gc != null && gc.CardConnectorChildren.Count > 0 && gc.IsHovered)
+            {
+                descriptionOverride = SokLoc.Translate(DescriptionTerm);
+                descriptionOverride += $"\n\n<i>{GetConnectorInfoString(gc)}</i>";
+            }
         }
 
         public override void PerformAttack(Combatable target, Vector3 attackPos)
@@ -167,6 +178,8 @@ namespace KivotosLand
             cst.AttackSpeed = stats.AttackSpeed;
             cst.HitChance = stats.HitChance;
             cst.Defence = stats.Defence;
+
+            cst.SpecialHits ??= new List<SpecialHit>();
         }
     }
 }
