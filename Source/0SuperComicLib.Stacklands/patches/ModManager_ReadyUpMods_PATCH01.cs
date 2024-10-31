@@ -23,17 +23,16 @@
 using HarmonyLib;
 using System;
 
-namespace SuperComicLib.Stacklands
-{
-    [HarmonyPatch(typeof(ModManager), "ReadyUpMods")]
-    internal static class ModManager_ReadyUpMods_PATCH01
-    {
-        public static void Postfix()
-        {
-            Mod_Extensions._assemblies.Clear();
-            Mod_Extensions._assemblies = null;
+namespace SuperComicLib.Stacklands;
 
-            GC.Collect(0);
-        }
+[HarmonyPatch(typeof(ModManager), "ReadyUpMods")]
+internal static class ModManager_ReadyUpMods_PATCH01
+{
+    public static void Postfix()
+    {
+        Mod_Extensions._assemblies.Clear();
+        Mod_Extensions._assemblies = null;
+
+        GC.Collect(0);
     }
 }

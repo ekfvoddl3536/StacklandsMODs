@@ -1,6 +1,7 @@
 ﻿// MIT License
 //
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
+// Copyright (c) 2022 Benedikt Werner
+// Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,35 +21,43 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// -- alias --
 using System;
 using System.Runtime.CompilerServices;
 
-namespace SuperComicLib.Stacklands;
+namespace FasterEndOfMonths;
 
-/// <summary>
-/// <see cref="ConfigEntry{T}"/> extension
-/// </summary>
-public static class ConfigEntry_Extensions
+internal static class EOMHelpers // EndOfMonth
 {
-    /// <summary>
-    /// <see cref="ConfigEntry{T}.OnChanged"/> = <paramref name="onChanged"/>
-    /// </summary>
-    /// <returns><paramref name="entry"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static ConfigEntry<T> SetOnChanged<T>(this ConfigEntry<T> entry, Action<T> onChanged)
+    public static ulong _fastModMultiplier;
+
+    internal static void Autosave()
     {
-        entry.OnChanged = onChanged;
-        return entry;
+        if (IntPtr.Size == sizeof(ulong))
+        {
+            // we can use fast mod
+            var mon = WorldManager.instance.CurrentMonth;
+            if (FastMod((uint)mon, (uint)ModConfig.autosaveFrequency, _fastModMultiplier) == 0)
+                SaveManager.instance.Save(true);
+        }
+        else
+        {
+            if (WorldManager.instance.CurrentMonth % ModConfig.autosaveFrequency == 0)
+                SaveManager.instance.Save(true);
+        }
     }
 
-    /// <summary>
-    /// <see cref="ConfigEntry{T}.OnChanged"/> += <paramref name="onChanged"/>
-    /// </summary>
-    /// <returns><paramref name="entry"/></returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static ConfigEntry<T> AddOnChanged<T>(this ConfigEntry<T> entry, Action<T> onChanged)
+    public static void OnAutosaveFrequencyChanged(int changedValue)
     {
-        entry.OnChanged += onChanged;
-        return entry;
+        // only 64-bit system
+        if (IntPtr.Size == sizeof(ulong))
+            _fastModMultiplier = ulong.MaxValue / (uint)changedValue + 1;
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static uint FastMod(uint value, uint divisor, ulong multiplier)
+    {
+        uint hb = (uint)(((((multiplier * value) >> 32) + 1) * divisor) >> 32);
+        return hb;
     }
 }

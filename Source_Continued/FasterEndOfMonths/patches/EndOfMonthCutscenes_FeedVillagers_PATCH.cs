@@ -1,6 +1,7 @@
 ﻿// MIT License
 //
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
+// Copyright (c) 2022 Benedikt Werner
+// Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +22,16 @@
 // SOFTWARE.
 
 using HarmonyLib;
+using System.Collections;
 
-namespace SuperComicLib.Stacklands;
+namespace FasterEndOfMonths.Patchs;
 
-[HarmonyPatch(typeof(SokLoc), nameof(SokLoc.Translate), [typeof(string)])]
-internal static class SokLoc_Translation_PATCH01
+[HarmonyPatch(typeof(EndOfMonthCutscenes), nameof(EndOfMonthCutscenes.FeedVillagers))]
+internal static class EndOfMonthCutscenes_FeedVillagers_PATCH
 {
-    public static bool Prefix(ref string __result, string termId)
+    public static bool Prefix(out IEnumerator __result)
     {
-        termId = termId.ToLowerCached();
-
-        var instance = SokLoc.instance;
-        if (instance != null && 
-            instance.CurrentLocSet.TermLookup.TryGetValue(termId, out var sokTerm))
-        {
-            var text = sokTerm.GetText();
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                __result = text;
-                return false;
-            }
-        }
-
-        __result =
-            SokLoc.FallbackSet.TermLookup.TryGetValue(termId, out var fallback_sokTerm)
-            ? fallback_sokTerm.GetText()
-            : "---MISSING---";
-            
+        __result = EOMCHelpers.FeedVillagers();
         return false;
     }
 }

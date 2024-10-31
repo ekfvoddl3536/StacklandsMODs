@@ -1,6 +1,7 @@
 ﻿// MIT License
 //
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
+// Copyright (c) 2022 Benedikt Werner
+// Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,34 +21,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using HarmonyLib;
+using SuperComicLib.Stacklands;
 
-namespace SuperComicLib.Stacklands;
+namespace FasterEndOfMonths;
 
-[HarmonyPatch(typeof(SokLoc), nameof(SokLoc.Translate), [typeof(string)])]
-internal static class SokLoc_Translation_PATCH01
+internal static class ModConfig
 {
-    public static bool Prefix(ref string __result, string termId)
+    public static int autosaveFrequency;
+    public static bool disableDebugAutosave;
+
+    public static void Load(ConfigFile config)
     {
-        termId = termId.ToLowerCached();
+        autosaveFrequency =
+            config
+                .GetEntry(nameof(autosaveFrequency), 1, false)
+                .SetOnChanged(new System.Action<int>(EOMHelpers.OnAutosaveFrequencyChanged))
+                .Value;
 
-        var instance = SokLoc.instance;
-        if (instance != null && 
-            instance.CurrentLocSet.TermLookup.TryGetValue(termId, out var sokTerm))
-        {
-            var text = sokTerm.GetText();
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                __result = text;
-                return false;
-            }
-        }
-
-        __result =
-            SokLoc.FallbackSet.TermLookup.TryGetValue(termId, out var fallback_sokTerm)
-            ? fallback_sokTerm.GetText()
-            : "---MISSING---";
-            
-        return false;
+        disableDebugAutosave =
+            config
+                .GetEntry(nameof(disableDebugAutosave), true, false)
+                .Value;
     }
 }

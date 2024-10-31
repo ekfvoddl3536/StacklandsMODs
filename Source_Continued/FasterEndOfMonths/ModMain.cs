@@ -1,6 +1,7 @@
 ﻿// MIT License
 //
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
+// Copyright (c) 2022 Benedikt Werner
+// Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,34 +21,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using HarmonyLib;
+using System;
+using SuperComicLib.Stacklands;
 
-namespace SuperComicLib.Stacklands;
+namespace FasterEndOfMonths;
 
-[HarmonyPatch(typeof(SokLoc), nameof(SokLoc.Translate), [typeof(string)])]
-internal static class SokLoc_Translation_PATCH01
+public sealed class ModMain : Mod
 {
-    public static bool Prefix(ref string __result, string termId)
+    public override void Ready()
     {
-        termId = termId.ToLowerCached();
+        var logger = Logger;
+        logger.Log(nameof(FasterEndOfMonths) + " MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'");
 
-        var instance = SokLoc.instance;
-        if (instance != null && 
-            instance.CurrentLocSet.TermLookup.TryGetValue(termId, out var sokTerm))
+        try
         {
-            var text = sokTerm.GetText();
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                __result = text;
-                return false;
-            }
-        }
+            logger.Log("Load options...");
 
-        __result =
-            SokLoc.FallbackSet.TermLookup.TryGetValue(termId, out var fallback_sokTerm)
-            ? fallback_sokTerm.GetText()
-            : "---MISSING---";
-            
-        return false;
+            this.LoadFallbackTerms();
+
+            ModConfig.Load(Config);
+
+            logger.Log("Done! Apply patches...");
+
+            this.PatchAllWithDependencies(Harmony, false);
+            Harmony.PatchAll();
+
+            logger.Log(nameof(FasterEndOfMonths) + " MOD Loaded!");
+        }
+        catch (Exception e)
+        {
+            logger.Log(nameof(FasterEndOfMonths) + " MOD Load FAIL! -> " + e.ToString());
+        }
     }
 }

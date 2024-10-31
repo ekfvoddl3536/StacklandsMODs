@@ -1,6 +1,7 @@
 ﻿// MIT License
 //
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
+// Copyright (c) 2022 Benedikt Werner
+// Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,33 +22,27 @@
 // SOFTWARE.
 
 using HarmonyLib;
+using System.Collections.Generic;
 
-namespace SuperComicLib.Stacklands;
+namespace FasterEndOfMonths.Patchs;
 
-[HarmonyPatch(typeof(SokLoc), nameof(SokLoc.Translate), [typeof(string)])]
-internal static class SokLoc_Translation_PATCH01
+internal static class WorldManager_EndOfMonthRoutine_PATCH
 {
-    public static bool Prefix(ref string __result, string termId)
+    private const string EndOfMonthRoutine = nameof(EndOfMonthRoutine);
+    private const string EndOfMonthCitiesRoutine = nameof(EndOfMonthCitiesRoutine);
+
+    [HarmonyTranspiler]
+    [HarmonyPatch(typeof(WorldManager), EndOfMonthRoutine, MethodType.Enumerator)]
+    public static IEnumerable<CodeInstruction> NoWaitForSeconds_N(IEnumerable<CodeInstruction> instructions)
     {
-        termId = termId.ToLowerCached();
+        var matcher = TranspilerHelpers.CallvirtSaveManagerSaveMatcher(instructions);
+        if (matcher.IsValid)
+            TranspilerHelpers.ReduceAutosaveCallReplace(matcher);
 
-        var instance = SokLoc.instance;
-        if (instance != null && 
-            instance.CurrentLocSet.TermLookup.TryGetValue(termId, out var sokTerm))
-        {
-            var text = sokTerm.GetText();
-            if (!string.IsNullOrWhiteSpace(text))
-            {
-                __result = text;
-                return false;
-            }
-        }
-
-        __result =
-            SokLoc.FallbackSet.TermLookup.TryGetValue(termId, out var fallback_sokTerm)
-            ? fallback_sokTerm.GetText()
-            : "---MISSING---";
-            
-        return false;
+        return matcher.InstructionEnumeration();
     }
+
+    [HarmonyTranspiler]
+    [HarmonyPatch(typeof(WorldManager), EndOfMonthCitiesRoutine, MethodType.Enumerator)]
+    public static IEnumerable<CodeInstruction> NoWaitForSeconds_Cities(IEnumerable<CodeInstruction> instructions) => NoWaitForSeconds_N(instructions);
 }

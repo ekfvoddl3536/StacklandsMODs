@@ -52,7 +52,9 @@ CALL :_TITLE_ "STEP 2. Build Projects"
 
 REM Query directories
 
-FOR /f "tokens=*" %%D IN ('DIR "%CD%\Source" /AD /B') DO CALL :_BUILD_ "%%D"
+FOR /f "tokens=*" %%D IN ('DIR "%CD%\Source" /AD /B') DO CALL :_BUILD_ "%%D" "Source"
+
+FOR /f "tokens=*" %%D IN ('DIR "%CD%\Source_Continued" /AD /B') DO CALL :_BUILD_ "%%D" "Source_Continued"
 
 ECHO.
 CALL :_TITLE_ "STEP 3. Complete"
@@ -66,7 +68,7 @@ GOTO :EOF
 
 
 
-:_BUILD_ arg1_name
+:_BUILD_ arg1_name arg2_dirpx
 REM If, '0SuperComicLib.Stacklands', skip
 IF /I "%~1"=="0SuperComicLib.Stacklands" GOTO :EOF
 
@@ -81,10 +83,10 @@ CALL :_TRY_CLEAN_ %~1
 
 REM build...
 
-dotnet restore "%CD%\Source\%~1\%~1.csproj"
+dotnet restore "%CD%\%~2\%~1\%~1.csproj"
 IF !ERRORLEVEL! NEQ 0 GOTO :_ERROR_
 
-dotnet build "%CD%\Source\%~1\%~1.csproj" ^
+dotnet build "%CD%\%~2\%~1\%~1.csproj" ^
 --no-restore ^
 --configuration !P_CONFIG! ^
 -nowarn:1701,1702,IDE1006,IDE0290,CS1591 ^
@@ -94,8 +96,8 @@ IF !ERRORLEVEL! NEQ 0 GOTO :_ERROR_
 
 REM copy resources...
 
-IF EXIST "%CD%\Source\%~1\Resources\" (
-    XCOPY /Y /S "%CD%\Source\%~1\Resources\*" "%CD%\Build\Artifacts\%~1\"
+IF EXIST "%CD%\%~2\%~1\Resources\" (
+    XCOPY /Y /S "%CD%\%~2\%~1\Resources\*" "%CD%\Build\Artifacts\%~1\"
 )
 
 REM Even if there are problems during this process, copy to Artifacts for easy manual intervention, and then copy back to the Mods folder.
@@ -143,14 +145,14 @@ GOTO :EOF
 REM ====== SUB-ROUTINE ====== 
 REM VOID _TRY_CLEAN(name)
 REM =========================
-:_TRY_CLEAN_ arg1_name
+:_TRY_CLEAN_ arg1_name arg2_dirpx
 IF !P_REBUILD!==1 (
     CALL :_PRINT_ "  CLEAN-UP: %1"
     
     REM clean-up, rebuild
     
-    CALL :_RD_ "%CD%\Source\%1\bin"
-    CALL :_RD_ "%CD%\Source\%1\obj"
+    CALL :_RD_ "%CD%\%~2\%1\bin"
+    CALL :_RD_ "%CD%\%~2\%1\obj"
     
     CALL :_RD_ "%CD%\Build\Artifacts\%1"
        

@@ -1,0 +1,5 @@
+Term	Notes	Korean	English
+op_autosaveFrequency_name		자동 저장 간격	Auto-save Frequency
+op_autosaveFrequency_tooltip		자동 저장을 수행할 간격. 게임은 기본적으로 매달마다 저장을 수행하지만, 렉도 유발합니다. 큰 숫자로 설정하면 자동으로 저장이 수행되지 않습니다. 메뉴로 나가도 게임은 저장됩니다.	How often to save at the end of the moon (every x moons). By default the game saves every moon which helps prevent data loss (if the game or your PC crashes) but it also makes the cutscene lag. Set to a large number to never save automatically. The game will still be saved when you exit to the menu.
+op_disableDebugAutosave_name		디버그 자동 저장 비활성화	Disable Debug Autosave
+op_disableDebugAutosave_tooltip		디버그 자동 저장을 비활성합니다. 게임은 기본적으로 매달마다 추가 백업 저장을 만들지만, 이는 렉 스파이크를 발생시킬 수 있습니다.	By default, the game creates additional versioned backup saves at the end of the moon. Disabling them reduces the short lag-spike at the end of each moon.

@@ -23,64 +23,63 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace SuperComicLib.Stacklands
+namespace SuperComicLib.Stacklands;
+
+/// <summary>
+/// <see cref="ConfigFile"/> extensions
+/// </summary>
+public static class ConfigFile_Extensions
 {
     /// <summary>
-    /// <see cref="ConfigFile"/> extensions
+    /// Reads the <see cref="ConfigEntry{T}"/> of the configuration value with the specified name from the <see cref="ConfigFile"/>.
+    /// <para/>
+    /// The name and tooltip of the UI are retrieved by TermId with the following pattern:<br/>
+    /// <br/>
+    /// name     : <c>"op_" + <paramref name="name"/> + "_name"</c><br/>
+    /// tooltipe : <c>"op_" + <paramref name="name"/> + "_tooltip"</c><br/>
+    /// <br/>
+    /// If a TermId in the current language cannot be found, English is the default.
     /// </summary>
-    public static class ConfigFile_Extensions
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static ConfigEntry<T> GetEntry<T>(this ConfigFile conf, string name, T defaultValue, bool restartAfterChanged = false)
     {
-        /// <summary>
-        /// Reads the <see cref="ConfigEntry{T}"/> of the configuration value with the specified name from the <see cref="ConfigFile"/>.
-        /// <para/>
-        /// The name and tooltip of the UI are retrieved by TermId with the following pattern:<br/>
-        /// <br/>
-        /// name     : <c>"op_" + <paramref name="name"/> + "_name"</c><br/>
-        /// tooltipe : <c>"op_" + <paramref name="name"/> + "_tooltip"</c><br/>
-        /// <br/>
-        /// If a TermId in the current language cannot be found, English is the default.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ConfigEntry<T> GetEntry<T>(this ConfigFile conf, string name, T defaultValue, bool restartAfterChanged = false)
+        var term = "op_" + name;
+
+        var entry = conf.GetEntry<T>(name, defaultValue, new ConfigUI
         {
-            var term = "op_" + name;
+            RestartAfterChange = restartAfterChanged,
+            NameTerm = term + "_name",
+            TooltipTerm = term + "_tooltip"
+        });
 
-            var entry = conf.GetEntry<T>(name, defaultValue, new ConfigUI
-            {
-                RestartAfterChange = restartAfterChanged,
-                NameTerm = term + "_name",
-                TooltipTerm = term + "_tooltip"
-            });
+        if (!SokLoc.instance.CurrentLocSet.ContainsTerm(entry.UI.NameTerm))
+        {
+            Debug.LogWarning("The provided string is not available in the current language. Attempting to substitute in English...");
 
-            if (!SokLoc.instance.CurrentLocSet.ContainsTerm(entry.UI.NameTerm))
-            {
-                Debug.LogWarning("The provided string is not available in the current language. Attempting to substitute in English...");
+            var fallback = SokLoc.FallbackSet;
 
-                var fallback = SokLoc.FallbackSet;
+            var ui = entry.UI;
+            ui.Name = fallback.TranslateTerm(ui.NameTerm);
+            ui.Tooltip = fallback.TranslateTerm(ui.TooltipTerm);
 
-                var ui = entry.UI;
-                ui.Name = fallback.TranslateTerm(ui.NameTerm);
-                ui.Tooltip = fallback.TranslateTerm(ui.TooltipTerm);
-
-                ui.NameTerm = null;
-                ui.TooltipTerm = null;
-            }
-
-            return entry;
+            ui.NameTerm = null;
+            ui.TooltipTerm = null;
         }
 
-        /// <summary>
-        /// Reads the <see cref="ConfigEntry{T}.Value"/> of the configuration value with the specified name from the <see cref="ConfigFile"/>.
-        /// <para/>
-        /// The name and tooltip of the UI are retrieved by TermId with the following pattern:<br/>
-        /// <br/>
-        /// name     : <c>"op_" + <paramref name="name"/> + "_name"</c><br/>
-        /// tooltipe : <c>"op_" + <paramref name="name"/> + "_tooltip"</c><br/>
-        /// <br/>
-        /// If a TermId in the current language cannot be found, English is the default.
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T GetValue<T>(this ConfigFile conf, string name, T defaultValue, bool restartAfterChanged = false) =>
-            GetEntry(conf, name, defaultValue, restartAfterChanged).Value;
+        return entry;
     }
+
+    /// <summary>
+    /// Reads the <see cref="ConfigEntry{T}.Value"/> of the configuration value with the specified name from the <see cref="ConfigFile"/>.
+    /// <para/>
+    /// The name and tooltip of the UI are retrieved by TermId with the following pattern:<br/>
+    /// <br/>
+    /// name     : <c>"op_" + <paramref name="name"/> + "_name"</c><br/>
+    /// tooltipe : <c>"op_" + <paramref name="name"/> + "_tooltip"</c><br/>
+    /// <br/>
+    /// If a TermId in the current language cannot be found, English is the default.
+    /// </summary>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static T GetValue<T>(this ConfigFile conf, string name, T defaultValue, bool restartAfterChanged = false) =>
+        GetEntry(conf, name, defaultValue, restartAfterChanged).Value;
 }
