@@ -1,5 +1,6 @@
 {
 	"id": "biggercapacity_bySuperComic",
 	"name": "Bigger Capacity (by SuperComic)",
-	"assembly": "BiggerCapacity.dll"
+	"assembly": "BiggerCapacity.dll",
+	"version": "1.5.0"
 }

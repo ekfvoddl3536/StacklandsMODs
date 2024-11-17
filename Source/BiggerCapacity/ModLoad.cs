@@ -23,40 +23,39 @@
 using System;
 using SuperComicLib.Stacklands;
 
-namespace BiggerCapacity
+namespace BiggerCapacity;
+
+public sealed class ModLoad : Mod
 {
-    public sealed class ModLoad : Mod
+    public override void Ready()
     {
-        public override void Ready()
+        var logger = Logger;
+        logger.Log(nameof(BiggerCapacity) + " MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'");
+
+        try
         {
-            var logger = Logger;
-            logger.Log(nameof(BiggerCapacity) + " MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'");
+            logger.Log("Load options...");
 
-            try
-            {
-                logger.Log("Load options...");
+            this.LoadFallbackTerms();
 
-                this.LoadFallbackTerms();
+            ModOptions.Load(Config);
 
-                ModOptions.Load(Config);
+            logger.Log("Done! Apply values...");
 
-                logger.Log("Done! Apply values...");
+            ApplyHelper.Initialize();
 
-                ApplyHelper.Initialize();
+            ApplyHelper.ResourceMax(ModOptions.resMax);
+            ApplyHelper.CoinMax(ModOptions.coinMax);
 
-                ApplyHelper.ResourceMax(ModOptions.resMax);
-                ApplyHelper.CoinMax(ModOptions.coinMax);
+            logger.Log("Done! Apply patches...");
 
-                logger.Log("Done! Apply patches...");
+            this.PatchAllWithDependencies(Harmony, false);
 
-                this.PatchAllWithDependencies(Harmony, false);
-
-                logger.Log(nameof(BiggerCapacity) + " MOD Loaded!");
-            }
-            catch (Exception e)
-            {
-                logger.Log(nameof(BiggerCapacity) + " MOD Load FAIL! -> " + e.ToString());
-            }
+            logger.Log(nameof(BiggerCapacity) + " MOD Loaded!");
+        }
+        catch (Exception e)
+        {
+            logger.Log(nameof(BiggerCapacity) + " MOD Load FAIL! -> " + e.ToString());
         }
     }
 }

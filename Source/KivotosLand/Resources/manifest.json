@@ -1,5 +1,6 @@
 {
 	"id": "kivotosland_bySuperComic",
 	"name": "BlueArchive - Kivotos Land!!",
-	"assembly": "KivotosLand.dll"
+	"assembly": "KivotosLand.dll",
+	"version": "1.5.0"
 }

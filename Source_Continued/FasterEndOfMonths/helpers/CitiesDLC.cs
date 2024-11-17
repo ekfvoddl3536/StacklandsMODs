@@ -186,7 +186,7 @@ internal static class CitiesDLC
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private static void TrySatisfiedCards(IEnumerable<CardData> requirementsCards)
     {
-        foreach (var rcd in requirementsCards)
+        foreach (var rcd in requirementsCards.ToList())
             foreach (var reqHolder in rcd.RequirementHolders)
             {
                 foreach (var creq in reqHolder.CardRequirements)
