@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace KivotosLand;
 
-public abstract class Student : TeenageVillager
+public abstract partial class Student : TeenageVillager
 {
     protected internal static FieldInfo _AttackSpecialHit;
     protected internal static PerformSpecialHitDelegate _PerformSpecialHit;

@@ -34,6 +34,8 @@ public sealed class ModLoad : Mod
             Student._PerformSpecialHit = (PerformSpecialHitDelegate)t.GetMethod("PerformSpecialHit", FLAGS).CreateDelegate(typeof(PerformSpecialHitDelegate));
             Student._ShowHitText = (ShowHitTextDelegate)t.GetMethod("ShowHitText", FLAGS).CreateDelegate(typeof(ShowHitTextDelegate));
 
+            DraggableUnsafeAccessor.Initialize(logger);
+
             LogPhase(logger,3);
 
             var temp_selector = new Func<CardData, bool>(CHEST_SELECTOR);

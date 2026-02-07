@@ -17,8 +17,11 @@
 mono_crash.*
 
 # local development environment
-PATH.txt
 .gamedir/
+.appdir/
+
+# Voice file
+*.wav
 
 # Build results
 [Dd]ebug/

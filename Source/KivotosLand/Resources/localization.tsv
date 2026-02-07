@@ -30,6 +30,8 @@ op_onFCR_name		풀 컬러 비주얼	カラフルなビジュアル	Colorful Visu
 op_onFCR_tooltip		캐릭터 렌더링을 흑백 대신, 풀 컬러로 합니다.	キャラクターのレンダリングを白黒ではなくフルカラーにします。	Makes character rendering full color instead of black and white.	使角色渲染为彩色而不是黑白。	讓角色呈現全彩而不是黑白。
 op_noGacha_name		고확률 학생 모집	高確学生募集	High-probability Recruit	高概率招募	高機率招募
 op_noGacha_tooltip		모집에서 학생 이 외 카드가 등장하지 않도록 하며, (오류 방지를 위한) 코인이 굉장히 낮은 확률로 등장하도록 설정합니다.	募集で学生以外のカードが登場しないようにし、（エラー防止のため）コインがとても低い確率で登場するように設定します。	The option ensures that no cards other than students appear in the recruitment, and sets a very low probability for coins to appear (to prevent errors).	该选项可确保在招募中不会出现除学生之外的卡片，并且将硬币出现的概率设置得非常低（以防止错误）。	此選項可確保招募中不會出現學生以外的任何卡片，並設定非常低的硬幣出現機率（以防止錯誤）。
+op_pickupVolume_name		학생 보이스 음량	生徒ボイス音量	Student voice volume	Student voice volume	Student voice volume
+op_pickupVolume_tooltip		학생 카드를 집어들 때, 재생되는 대사의 음량을 제어합니다. 설정가능한 최소값은 0이고, 최대값은 100입니다.	生徒カードをドラッグした際に再生されるボイスの音量を設定します。設定値は0〜100です。	Adjusts the voice volume when dragging a student card. (Range: 0–100)	Adjusts the voice volume when dragging a student card. (Range: 0–100)	Adjusts the voice volume when dragging a student card. (Range: 0–100)
 ba_tendou_aris_armed_name		아리스 (무장)	アリス　(臨戦)	Tendou Alice (Armed)	Tendou Alice (Armed)	Tendou Alice (Armed)
 ba_tendou_aris_armed_description		아리스, 더 많은 세상을 보고 싶습니다!	アリス、先生と一緒にいろんな世界を冒険してみたいです！	I'll never give up... That's the mark of a true hero!!	I'll never give up... That's the mark of a true hero!!	I'll never give up... That's the mark of a true hero!!
 ba_kei_name		케이	ケイ	Kei	Kei	Kei

@@ -6,6 +6,7 @@
       ShapesRuntime;
       Unity.TextMeshPro;
       UnityEngine.UI;
+      UnityEngine.AudioModule;
     </LibInclude>
     
     <ProjRefers>0SuperComicLib.Stacklands</ProjRefers>
