@@ -1,16 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <Import Project="..\..\Build\common.props" />
   
   <PropertyGroup>
     <RootNamespace>SuperComicLib.Stacklands</RootNamespace>
     <AssemblyTitle>0SuperComicLib.Stacklands</AssemblyTitle>
     
-    <Copyright>Copyright (c) 2023. SuperComic(ekfvoddl3535@naver.com)</Copyright>
-    
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
-  
-  <Import Project="..\..\Build\includes.props" />
   
 </Project>

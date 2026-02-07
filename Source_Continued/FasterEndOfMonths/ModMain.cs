@@ -1,4 +1,4 @@
-﻿// MIT License
+// MIT License
 //
 // Copyright (c) 2022 Benedikt Werner
 // Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
@@ -21,7 +21,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using System;
 using SuperComicLib.Stacklands;
 
 namespace FasterEndOfMonths;

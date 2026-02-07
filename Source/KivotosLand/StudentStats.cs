@@ -1,59 +1,37 @@
-﻿// MIT License
-//
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// The MIT License (MIT)
+// Copyright (c) 2023-2026. Super Comic (ekfvoddl3535@naver.com)
 
-using System.Runtime.InteropServices;
+namespace KivotosLand;
 
-namespace KivotosLand
+[StructLayout(LayoutKind.Explicit)]
+internal readonly ref struct StudentStats
 {
-    [StructLayout(LayoutKind.Explicit)]
-    internal readonly ref struct StudentStats
+    // higher the better
+    [FieldOffset(sizeof(long) * 0)]
+    public readonly int HealthPoints;
+
+    // higher the better
+    [FieldOffset(sizeof(long) * 1)]
+    public readonly int AttackDamage;
+
+    // lower the better
+    [FieldOffset(sizeof(long) * 2)]
+    public readonly float AttackSpeed;
+
+    // [0..1] higher the better
+    [FieldOffset(sizeof(long) * 3)]
+    public readonly float HitChance;
+
+    // higher the better
+    [FieldOffset(sizeof(long) * 4)]
+    public readonly int Defence;
+
+    public StudentStats(int hp, int atkDmg = 1, float atkSpd = 3.5f, float hit = 0.5f, int def = 1)
     {
-        // higher the better
-        [FieldOffset(sizeof(long) * 0)]
-        public readonly int HealthPoints;
-
-        // higher the better
-        [FieldOffset(sizeof(long) * 1)]
-        public readonly int AttackDamage;
-
-        // lower the better
-        [FieldOffset(sizeof(long) * 2)]
-        public readonly float AttackSpeed;
-
-        // [0..1] higher the better
-        [FieldOffset(sizeof(long) * 3)]
-        public readonly float HitChance;
-
-        // higher the better
-        [FieldOffset(sizeof(long) * 4)]
-        public readonly int Defence;
-
-        public StudentStats(int hp, int atkDmg = 1, float atkSpd = 3.5f, float hit = 0.5f, int def = 1)
-        {
-            HealthPoints = hp;
-            AttackDamage = atkDmg;
-            AttackSpeed = atkSpd;
-            HitChance = hit;
-            Defence = def;
-        }
+        HealthPoints = hp;
+        AttackDamage = atkDmg;
+        AttackSpeed = atkSpd;
+        HitChance = hit;
+        Defence = def;
     }
 }

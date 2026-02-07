@@ -1,0 +1,15 @@
+{
+  "id": "ba_tendou_aris_armed",
+  "nameTerm": "ba_tendou_aris_armed_name",
+  "descriptionTerm": "ba_tendou_aris_armed_description",
+  "icon": "Tendou_Aris(Armed).png",
+  "type": "Humans",
+  "script": "KivotosLand.Tendou_Aris_Armed",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

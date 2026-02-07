@@ -7,109 +7,173 @@
   "location": "Mainland",
   "cardBags": [
     {
-	  "CardBagType": "Chances",
-	  "CardsInPack": 1,
+      "CardBagType": "Chances",
+      "CardsInPack": 1,
       "SetCardBag": "SpecialResources",
       "Chances": [
-		{
+        {
           "Id": "ba_kasumizawa_miyu",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_rikuhachima_aru",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_shimoe_koharu",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_sorasaki_hina",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_takanashi_hoshino",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_tendou_aris",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_hayase_yuuka",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_misono_mika",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_sunaookami_shiroko",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_natsume_iroha",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "ba_ajitani_hifumi",
-          "Chance": 30,
-		  "MaxCountToGive": 1,
+          "Chance": 31,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
+          "Id": "ba_tendou_aris_armed",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_kei",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_tsukatsuki_rio_armed",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_akeboshi_himari_armed",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_kirifuji_nagisa_swimsuit",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_yurizono_seia_swimsuit",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_saiba_midori_winter",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
+          "Id": "ba_saiba_momoi_winter",
+          "Chance": 31,
+          "MaxCountToGive": 1,
+          "HasMaxCount": true,
+          "HasPrerequisiteCard": false,
+          "IsEnemy": false
+        },
+        {
           "Id": "ba_gsc_president",
-          "Chance": 10,
-		  "MaxCountToGive": 1,
+          "Chance": 11,
+          "MaxCountToGive": 1,
           "HasMaxCount": true,
           "HasPrerequisiteCard": false,
           "IsEnemy": false
         },
-		{
+        {
           "Id": "gold",
-          "Chance": 990,
+          "Chance": 9400,
           "HasMaxCount": false,
           "HasPrerequisiteCard": false,
           "IsEnemy": false

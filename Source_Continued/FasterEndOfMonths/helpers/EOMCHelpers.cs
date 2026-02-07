@@ -1,4 +1,4 @@
-﻿// MIT License
+// MIT License
 //
 // Copyright (c) 2022 Benedikt Werner
 // Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
@@ -22,8 +22,6 @@
 // SOFTWARE.
 
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace FasterEndOfMonths;
 

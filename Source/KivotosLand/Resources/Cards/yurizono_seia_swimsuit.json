@@ -1,0 +1,15 @@
+{
+  "id": "ba_yurizono_seia_swimsuit",
+  "nameTerm": "ba_yurizono_seia_swimsuit_name",
+  "descriptionTerm": "ba_yurizono_seia_swimsuit_description",
+  "icon": "Yurizono_Seia(Swimsuit).png",
+  "type": "Humans",
+  "script": "KivotosLand.Yurizono_Seia_Swimsuit",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

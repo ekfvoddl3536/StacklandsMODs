@@ -1,0 +1,88 @@
+<Project>
+  
+  <!-- Global Project Settings -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    
+    <Authors>SuperComic(ekfvoddl3535@naver.com)</Authors>
+    <Copyright>Copyright (c) 2023-2026. SuperComic(ekfvoddl3535@naver.com)</Copyright>
+    
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+            
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/ekfvoddl3536/StacklandsMODs</RepositoryUrl>
+    
+    <CLSCompliant>false</CLSCompliant>
+    <ComVisible>false</ComVisible>
+    
+    <Nullable>annotations</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    
+    <Version>1.6.0.0</Version>
+    
+    <!-- No warning -->
+    <!--
+    [ Code analysis, Code style rules ]
+    IDE0032: Use auto-implemented property
+    IDE0057: Use range operator
+    IDE0065: 'using' directive placement
+    IDE0090: Simplify new expression
+    IDE0130: Namespace does not match folder structure
+    IDE0180: Use tuple to swap values
+    IDE0290: Use primary constructor
+    IDE0305: Use collection expression for fluent
+    IDE1006: Naming rule violation
+    -->
+    <NoWarn>$(NoWarn);IDE0032;IDE0057;IDE0065;IDE0090;IDE0130;IDE0180;IDE0290;IDE0305;IDE1006</NoWarn>
+  </PropertyGroup>
+  
+  <!-- Constant properties -->
+  <PropertyGroup>
+    <GameDir>$(MSBuildThisFileDirectory)Build/.gamedir/</GameDir>
+    
+    <LocalSourcesRoot>$(MSBuildThisFileDirectory)/Source/</LocalSourcesRoot>
+    
+    <SharedLibs>
+      0Harmony;
+      GameScripts;
+      SokLoc;
+      UnityEngine;
+      UnityEngine.CoreModule;
+    </SharedLibs>
+  </PropertyGroup>
+  
+  <!-- Resources folder visible control -->
+  <ItemGroup>
+    <Compile Remove="Resources\**" />
+    <EmbeddedResource Remove="Resources\**" />
+    <None Remove="Resources\**" />
+  </ItemGroup>
+  
+  <!-- Output Directory (Centeral) -->
+  <PropertyGroup>
+    <BaseOutputPath>$(MSBuildThisFileDirectory)bin/$(MSBuildProjectName)/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    
+    <!-- Remove TFM in Output Path -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  
+  <!-- Lazy import -->
+  <PropertyGroup>
+    <CustomBeforeMicrosoftCommonProps>$(MSBuildThisFileDirectory)Post.Directory.Build.props</CustomBeforeMicrosoftCommonProps>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- Global Usings -->
+    <Using Include="System.Diagnostics.CodeAnalysis"/>
+    <Using Include="System.Runtime.CompilerServices"/>
+    <Using Include="System.Runtime.InteropServices"/>
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+   <DebugType>none</DebugType>
+  </PropertyGroup>
+  
+</Project>

@@ -1,28 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <Import Project="..\..\Build\common.props" />
   
   <PropertyGroup>
     <AssemblyTitle>FasterEndOfMonths_Continued</AssemblyTitle>
     
-    <Copyright>Copyright (c) 2022 Benedikt Werner; Copyright (c) 2024 SuperComic(ekfvoddl3535@naver.com)</Copyright>
+    <Copyright>Copyright (c) 2022 Benedikt Werner; Copyright (c) 2024-2026. SuperComic(ekfvoddl3535@naver.com)</Copyright>
 
     <PublicizerRuntimeStrategies>Unsafe</PublicizerRuntimeStrategies>
+    
+    <LibInclude>UnityEngine.AudioModule</LibInclude>
+    <ProjRefers>0SuperComicLib.Stacklands</ProjRefers>
   </PropertyGroup>
   
-  <Import Project="..\..\Build\includes.props" />
-
-  <ItemGroup>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>../../Library/bin/UnityEngine.AudioModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="../../Source/0SuperComicLib.Stacklands/0SuperComicLib.Stacklands.csproj" />
-  </ItemGroup>
-
   <ItemGroup>
     <!-- Nuget package(s) -->
     <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
@@ -31,7 +19,7 @@
     </PackageReference>
     
     <!-- Publicize -->
-    <Publicize Include="GameScripts" />
+    <Publicize Include="GameScripts" IncludeCompilerGeneratedMembers="false" />
   </ItemGroup>
   
 </Project>

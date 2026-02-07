@@ -1,120 +1,98 @@
-﻿// MIT License
-//
-// Copyright (c) 2024. SuperComic (ekfvoddl3535@naver.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// The MIT License (MIT)
+// Copyright (c) 2023-2026. Super Comic (ekfvoddl3535@naver.com)
 
 using SuperComicLib.Runtime;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
-namespace SmartFactory
+namespace SmartFactory;
+
+public abstract class LogicPredCardByRefBase : LogicBase, IPredCardByRefLogic
 {
-    public abstract class LogicPredCardByRefBase : LogicBase, IPredCardByRefLogic
+    protected CardData? _target;
+
+    [ExtraData("targetID")]
+    public string m_targetUniqueId;
+
+    protected override void OnDisconnectedAll() => _target = null;
+
+    bool IPredCardByRefLogic.TryLinkByRef(CardData other)
     {
-        protected CardData? _target;
-
-        [ExtraData("targetID")]
-        public string m_targetUniqueId;
-
-        protected override void OnDisconnectedAll() => _target = null;
-
-        bool IPredCardByRefLogic.TryLinkByRef(CardData other)
+        if (_target != (object)null)
         {
-            if (_target != (object)null)
+            if (_target == (object)other)
             {
-                if (_target == (object)other)
-                {
-                    OnUnlinkedTarget(other);
-
-                    LogicNetworkManager.fromCard = null;
-
-                    return true;
-                }
-            }
-            else if (CanLink(other))
-            {
-                OnLinkedTarget(other);
+                OnUnlinkedTarget(other);
 
                 LogicNetworkManager.fromCard = null;
 
                 return true;
             }
-            
-            return false;
         }
-
-        protected override void CheckNodeLength()
+        else if (CanLink(other))
         {
-            if (IsDraggingMe())
-            {
-                ConnectionUpdate(InputNodes, Inputs);
+            OnLinkedTarget(other);
 
-                ConnectionUpdate(OutputNodes, Outputs);
+            LogicNetworkManager.fromCard = null;
 
-                if (_target != (object)null &&
-                    _GetDistance(_target, MyGameCard.transform.position) > ModOptions.maxConnLen)
-                    OnUnlinkedTarget(_target);
-            }
+            return true;
         }
+        
+        return false;
+    }
 
-        protected virtual void OnLinkedTarget(CardData other)
+    protected override void CheckNodeLength()
+    {
+        if (IsDraggingMe())
         {
-            var root = other.MyGameCard;
-            while (root.Parent != (object)null)
-                root = root.Parent;
+            ConnectionUpdate(InputNodes, Inputs);
 
-            _target = root.CardData;
+            ConnectionUpdate(OutputNodes, Outputs);
+
+            if (_target != (object)null &&
+                _GetDistance(_target, MyGameCard.transform.position) > ModOptions.maxConnLen)
+                OnUnlinkedTarget(_target);
         }
-        protected virtual void OnUnlinkedTarget(CardData other) => _target = null;
+    }
 
-        protected override void OnSave() => m_targetUniqueId = GetUniqueId(_target);
-        protected override void OnLoad() => FromUniqueId(m_targetUniqueId, ref _target);
+    protected virtual void OnLinkedTarget(CardData other)
+    {
+        var root = other.MyGameCard;
+        while (root.Parent != (object)null)
+            root = root.Parent;
 
-        protected bool CanLink(CardData other) => 
-            !(other is LogicNetworkManager) &&
-            _GetDistance(other, MyGameCard.transform.position) <= ModOptions.maxConnLen;
+        _target = root.CardData;
+    }
+    protected virtual void OnUnlinkedTarget(CardData other) => _target = null;
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected static string GetUniqueId(CardData? card) =>
-            card != (object)null 
-            ? card.UniqueId
-            : string.Empty;
+    protected override void OnSave() => m_targetUniqueId = GetUniqueId(_target);
+    protected override void OnLoad() => FromUniqueId(m_targetUniqueId, ref _target);
 
-        protected static void FromUniqueId<T>(string? id, ref T? item) where T : CardData
+    protected bool CanLink(CardData other) => 
+        !(other is LogicNetworkManager) &&
+        _GetDistance(other, MyGameCard.transform.position) <= ModOptions.maxConnLen;
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    protected static string GetUniqueId(CardData? card) =>
+        card != (object)null 
+        ? card.UniqueId
+        : string.Empty;
+
+    protected static void FromUniqueId<T>(string? id, ref T? item) where T : CardData
+    {
+        if (string.IsNullOrEmpty(id))
+            return;
+
+        var gc =
+            WorldManager.instance.AllCards
+            .AsParallel()
+            .AsUnordered()
+            .FirstOrDefault(x => x!.CardData!.UniqueId == id);
+
+        if (gc == (object)null)
         {
-            if (string.IsNullOrEmpty(id))
-                return;
-
-            var gc =
-                WorldManager.instance.AllCards
-                .AsParallel()
-                .AsUnordered()
-                .FirstOrDefault(x => x!.CardData!.UniqueId == id);
-
-            if (gc == (object)null)
-            {
-                UnityEngine.Debug.LogError($"Can't find unique id = '{id}'");
-                item = null;
-            }
-            else
-                item = XUnsafe.As<T>(gc.CardData);
+            UnityEngine.Debug.LogError($"Can't find unique id = '{id}'");
+            item = null;
         }
+        else
+            item = XUnsafe.As<T>(gc.CardData);
     }
 }

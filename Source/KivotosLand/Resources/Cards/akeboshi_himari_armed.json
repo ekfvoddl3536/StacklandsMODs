@@ -1,0 +1,15 @@
+{
+  "id": "ba_akeboshi_himari_armed",
+  "nameTerm": "ba_akeboshi_himari_armed_name",
+  "descriptionTerm": "ba_akeboshi_himari_armed_description",
+  "icon": "Akeboshi_Himari(Armed).png",
+  "type": "Humans",
+  "script": "KivotosLand.Akeboshi_Himari_Armed",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

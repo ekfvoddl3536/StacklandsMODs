@@ -1,50 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <Import Project="..\..\Build\common.props" />
   
   <PropertyGroup>
-    <AssemblyTitle>SmartFactory</AssemblyTitle>
+    <LibInclude>
+      UnityEngine.ImageConversionModule;
+      ShapesRuntime;
+      Unity.TextMeshPro;
+      Unity.InputSystem;
+      UnityEngine.JSONSerializeModule;
+      System.Runtime.CompilerServices.Unsafe;
+    </LibInclude>
     
-    <Copyright>Copyright (c) 2024. SuperComic(ekfvoddl3535@naver.com)</Copyright>
+    <ProjRefers>0SuperComicLib.Stacklands</ProjRefers>
+    
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
   </PropertyGroup>
   
-  <Import Project="..\..\Build\includes.props" />
-  
   <ItemGroup>
-    <Reference Include="UnityEngine.ImageConversionModule">
-      <HintPath>..\..\Library\bin\UnityEngine.ImageConversionModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="ShapesRuntime">
-      <HintPath>..\..\Library\bin\ShapesRuntime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>..\..\Library\bin\Unity.TextMeshPro.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.InputSystem">
-      <HintPath>..\..\Library\bin\Unity.InputSystem.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.JSONSerializeModule">
-      <HintPath>..\..\Library\bin\UnityEngine.JSONSerializeModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>..\..\Library\bin\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="fluxiolib">
       <HintPath>..\..\Library\fluxio\fluxiolib.dll</HintPath>
     </Reference>
     <Reference Include="0SuperComicLib.Core">
       <HintPath>..\..\Library\sclib\0SuperComicLib.Core.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\0SuperComicLib.Stacklands\0SuperComicLib.Stacklands.csproj" />
   </ItemGroup>
   
 </Project>

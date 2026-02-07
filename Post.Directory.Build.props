@@ -1,0 +1,18 @@
+<Project>
+  
+  <ItemGroup Condition="'$(ProjRefers)'!=''">
+    <_ProjName Include="$(ProjRefers)" KeepDuplicates="false"/>
+    <ProjectReference Include="@(_ProjName->'$(LocalSourcesRoot)%(Identity)/%(Identity).csproj')"/>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <_DllName Include="$(SharedLibs)" KeepDuplicates="false"/>
+    <_DllName Include="$(LibInclude)" KeepDuplicates="false"/>
+    
+    <Reference Include="@(_DllName->'%(Identity)')">
+      <HintPath>$(GameDir)%(Identity).dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  
+</Project>

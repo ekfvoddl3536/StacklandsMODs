@@ -1,0 +1,15 @@
+{
+  "id": "ba_saiba_momoi_winter",
+  "nameTerm": "ba_saiba_momoi_winter_name",
+  "descriptionTerm": "ba_saiba_momoi_winter_description",
+  "icon": "Saiba_Momoi(Winter).png",
+  "type": "Humans",
+  "script": "KivotosLand.Saiba_Momoi_Winter",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

@@ -1,4 +1,4 @@
-﻿// MIT License
+// MIT License
 //
 // Copyright (c) 2022 Benedikt Werner
 // Copyright (c) 2024 SuperComic (ekfvoddl3535@naver.com)
@@ -22,9 +22,6 @@
 // SOFTWARE.
 
 // -- alias --
-using System;
-using System.Runtime.CompilerServices;
-
 namespace FasterEndOfMonths;
 
 internal static class EOMHelpers // EndOfMonth

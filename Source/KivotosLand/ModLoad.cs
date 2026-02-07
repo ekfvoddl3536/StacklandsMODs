@@ -1,126 +1,104 @@
-﻿// MIT License
-//
-// Copyright (c) 2023. SuperComic (ekfvoddl3535@naver.com)
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// The MIT License (MIT)
+// Copyright (c) 2023-2026. Super Comic (ekfvoddl3535@naver.com)
 
-using System;
-using System.Linq;
 using System.Reflection;
 using SuperComicLib.Stacklands;
 
-namespace KivotosLand
+namespace KivotosLand;
+
+public sealed class ModLoad : Mod
 {
-    public sealed class ModLoad : Mod
+    private const int MAX_PHASE = 4;
+    private const int MAX_COIN_COUNT = 1200;
+
+    public override void Ready()
     {
-        private const int MAX_PHASE = 4;
-        private const int MAX_COIN_COUNT = 1200;
+        var logger = Logger;
+        logger.Log(nameof(KivotosLand) + " MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'");
 
-        public override void Ready()
+        try
         {
-            var logger = Logger;
-            logger.Log(nameof(KivotosLand) + " MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'");
+            LogPhase(logger,1);
 
-            try
+            this.LoadFallbackTerms();
+
+            ModOptions.Load(Config);
+            GlobalValues.Load();
+
+            LogPhase(logger,2);
+
+            var t = typeof(Combatable);
+
+            const BindingFlags FLAGS = BindingFlags.NonPublic | BindingFlags.Instance;
+            Student._AttackSpecialHit = t.GetField("AttackSpecialHit", FLAGS) ?? throw new FieldAccessException();
+            Student._PerformSpecialHit = (PerformSpecialHitDelegate)t.GetMethod("PerformSpecialHit", FLAGS).CreateDelegate(typeof(PerformSpecialHitDelegate));
+            Student._ShowHitText = (ShowHitTextDelegate)t.GetMethod("ShowHitText", FLAGS).CreateDelegate(typeof(ShowHitTextDelegate));
+
+            LogPhase(logger,3);
+
+            var temp_selector = new Func<CardData, bool>(CHEST_SELECTOR);
+            var chestPrefabs = WorldManager.instance.CardDataPrefabs.AsParallel().AsUnordered().Where(temp_selector);
+
+            foreach (var prefab in chestPrefabs)
             {
-                LogPhase(logger,1);
+                ref int maxCoins = ref ((Chest)prefab).MaxCoinCount;
 
-                this.LoadFallbackTerms();
+                if (maxCoins < MAX_COIN_COUNT)
+                    maxCoins = MAX_COIN_COUNT;
+            }
 
-                ModOptions.Load(Config);
-                GlobalValues.Load();
+            LogPhase(logger, 4);
 
-                LogPhase(logger,2);
+            PostModLoad();
 
-                var t = typeof(Combatable);
+            this.PatchAllWithDependencies(Harmony, false);
+            Harmony.PatchAll();
 
-                const BindingFlags FLAGS = BindingFlags.NonPublic | BindingFlags.Instance;
-                Student._AttackSpecialHit = t.GetField("AttackSpecialHit", FLAGS) ?? throw new FieldAccessException();
-                Student._PerformSpecialHit = (PerformSpecialHitDelegate)t.GetMethod("PerformSpecialHit", FLAGS).CreateDelegate(typeof(PerformSpecialHitDelegate));
-                Student._ShowHitText = (ShowHitTextDelegate)t.GetMethod("ShowHitText", FLAGS).CreateDelegate(typeof(ShowHitTextDelegate));
+            logger.Log(nameof(KivotosLand) + " MOD Loaded!");
+        }
+        catch (Exception e)
+        {
+            logger.Log(nameof(KivotosLand) + " MOD Load FAIL! -> " + e.ToString());
+        }
+    }
 
-                LogPhase(logger,3);
+    private static void PostModLoad()
+    {
+        if (!ModOptions.noGacha)
+            return;
 
-                var temp_selector = new Func<CardData, bool>(CHEST_SELECTOR);
-                var chestPrefabs = WorldManager.instance.CardDataPrefabs.AsParallel().AsUnordered().Where(temp_selector);
+        var _where = new Func<CardChance, bool>(CARDCHANCE_FILTER);
+        var _select = new Func<CardChance, CardChance>(CARDCHANCE_SELECTOR);
 
-                foreach (var prefab in chestPrefabs)
+        var datas = WorldManager.instance.GameDataLoader.BoosterpackDatas;
+        foreach (var data in datas)
+            if (data.BoosterId == "ba_gacha1_booster")
+            {
+                foreach (var cardBag in data.CardBags)
                 {
-                    ref int maxCoins = ref ((Chest)prefab).MaxCoinCount;
+                    var list = cardBag.Chances.Where(_where).Select(_select).ToList();
+                    list.Add(new CardChance(Cards.gold, 1));
 
-                    if (maxCoins < MAX_COIN_COUNT)
-                        maxCoins = MAX_COIN_COUNT;
+                    cardBag.Chances.Clear();
+                    cardBag.Chances = list;
                 }
 
-                LogPhase(logger, 4);
-
-                PostModLoad();
-
-                this.PatchAllWithDependencies(Harmony, false);
-                Harmony.PatchAll();
-
-                logger.Log(nameof(KivotosLand) + " MOD Loaded!");
+                break;
             }
-            catch (Exception e)
-            {
-                logger.Log(nameof(KivotosLand) + " MOD Load FAIL! -> " + e.ToString());
-            }
-        }
 
-        private static void PostModLoad()
-        {
-            if (!ModOptions.noGacha)
-                return;
+        GC.Collect(0, GCCollectionMode.Default, false, false);
+    }
 
-            var _where = new Func<CardChance, bool>(CARDCHANCE_FILTER);
-            var _select = new Func<CardChance, CardChance>(CARDCHANCE_SELECTOR);
+    private static void LogPhase(ModLogger logger, int phase) =>
+        logger.Log(nameof(KivotosLand) + $" MOD Initialize... Phase {phase} / {MAX_PHASE}");
 
-            var datas = WorldManager.instance.GameDataLoader.BoosterpackDatas;
-            foreach (var data in datas)
-                if (data.BoosterId == "ba_gacha1_booster")
-                {
-                    foreach (var cardBag in data.CardBags)
-                    {
-                        var list = cardBag.Chances.Where(_where).Select(_select).ToList();
-                        list.Add(new CardChance(Cards.gold, 1));
+    private static bool CHEST_SELECTOR(CardData x) => x is Chest;
 
-                        cardBag.Chances.Clear();
-                        cardBag.Chances = list;
-                    }
+    private static bool CARDCHANCE_FILTER(CardChance x) => x.Id.StartsWith("ba_");
 
-                    break;
-                }
-
-            GC.Collect(0, GCCollectionMode.Default, false, false);
-        }
-
-        private static void LogPhase(ModLogger logger, int phase) =>
-            logger.Log(nameof(KivotosLand) + $" MOD Initialize... Phase {phase} / {MAX_PHASE}");
-
-        private static bool CHEST_SELECTOR(CardData x) => x is Chest;
-
-        private static bool CARDCHANCE_FILTER(CardChance x) => x.Id.StartsWith("ba_");
-
-        private static CardChance CARDCHANCE_SELECTOR(CardChance x)
-        {
-            x.Chance = (int)Math.Min((long)x.Chance * 100_000, int.MaxValue);
-            return x;
-        }
+    private static CardChance CARDCHANCE_SELECTOR(CardChance x)
+    {
+        x.Chance = (int)Math.Min((long)x.Chance * 100_000, int.MaxValue);
+        return x;
     }
 }

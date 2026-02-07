@@ -16,6 +16,10 @@
 # Mono auto generated files
 mono_crash.*
 
+# local development environment
+PATH.txt
+.gamedir/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

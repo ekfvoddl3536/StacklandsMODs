@@ -1,0 +1,20 @@
+@ECHO OFF
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+SET "CURRENT_DIR=%~dp0"
+SET /p TARGET_PATH=<"%CURRENT_DIR%PATH.txt"
+
+SET "LINK_NAME=%CURRENT_DIR%.gamedir"
+
+ECHO "Creating symbolic link..."
+MKLINK /J "%LINK_NAME%" "%TARGET_PATH%"
+
+if !ERRORLEVEL! NEQ 0 (
+    ECHO "Fail"
+    PAUSE
+    EXIT /b 0
+    goto :EOF
+)
+
+ECHO "SUCCESS"
+PAUSE

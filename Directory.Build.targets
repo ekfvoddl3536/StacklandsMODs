@@ -1,0 +1,47 @@
+<Project>
+  
+  <PropertyGroup>
+    <DestBasePath>$(LOCALAPPDATA)Low/sokpop/Stacklands/Mods/</DestBasePath>
+    
+    <_DestDir>$(DestBasePath)$(ProjectName)/</_DestDir>
+  </PropertyGroup>
+  
+  <Target Name="PostBuild" AfterTargets="Build" Condition="Exists('$(ProjectDir)Resources/')">
+    <!-- post build -->
+    <ItemGroup>
+      <_ResourceFiles Include="$(ProjectDir)Resources/**/*" />
+      <_BuildArtifacts Include="$(TargetDir)**/*" />
+    </ItemGroup>
+    
+    <Message Importance="high" Text="[PostBuild] Copy build artifacts to '$(_DestDir)'" />
+    
+    <!-- Copy resources -->
+    <Copy
+      SourceFiles="@(_ResourceFiles)" 
+      DestinationFolder="$(_DestDir)%(RecursiveDir)" 
+      SkipUnchangedFiles="true" 
+      OverwriteReadOnlyFiles="true" />
+      
+    <!-- Copy build artifacts -->
+    <Copy
+      SourceFiles="@(_BuildArtifacts)"
+      DestinationFolder="$(_DestDir)%(RecursiveDir)"
+      SkipUnchangedFiles="true"
+      OverwriteReadOnlyFiles="true" />
+    
+    <!-- Copy LICENSE -->
+    <Copy
+      SourceFiles="$(MSBuildThisFileDirectory)LICENSE.txt"
+      DestinationFolder="$(_DestDir)"
+      SkipUnchangedFiles="true"
+      OverwriteReadOnlyFiles="true"
+      Condition="!Exists('$(_DestDir)LICENSE.txt')" />
+  </Target>
+  
+  <Target Name="CleanArtifacts" AfterTargets="Clean">
+    <RemoveDir Directories="$(_DestDir)" />
+    
+    <Message Importance="high" Text="[Clean] Artifacts folder has been removed for: '$(_DestDir)'." />
+  </Target>
+  
+</Project>

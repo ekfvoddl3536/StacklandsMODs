@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Continued/">
+    <Project Path="Source_Continued/FasterEndOfMonths/FasterEndOfMonths.csproj"/>
+  </Folder>
+  <Project Path="Source/0SuperComicLib.Stacklands/0SuperComicLib.Stacklands.csproj"/>
+  <Project Path="Source/BiggerCapacity/BiggerCapacity.csproj"/>
+  <Project Path="Source/KivotosLand/KivotosLand.csproj"/>
+  <Project Path="Source/SmartFactory/SmartFactory.csproj"/>
+</Solution>

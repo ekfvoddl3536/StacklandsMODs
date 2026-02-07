@@ -1,0 +1,15 @@
+{
+  "id": "ba_kei",
+  "nameTerm": "ba_kei_name",
+  "descriptionTerm": "ba_kei_description",
+  "icon": "Kei.png",
+  "type": "Humans",
+  "script": "KivotosLand.Kei",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}

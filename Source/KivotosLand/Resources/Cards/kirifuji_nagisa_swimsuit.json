@@ -1,0 +1,15 @@
+{
+  "id": "ba_kirifuji_nagisa_swimsuit",
+  "nameTerm": "ba_kirifuji_nagisa_swimsuit_name",
+  "descriptionTerm": "ba_kirifuji_nagisa_swimsuit_description",
+  "icon": "Kirifuji_Nagisa(Swimsuit).png",
+  "type": "Humans",
+  "script": "KivotosLand.Kirifuji_Nagisa_Swimsuit",
+  "_IsShiny": false,
+  "_HasUniquePalette": true,
+  "_MyPalette": {
+    "Color": "#D4B7ED",
+    "Color2": "#E5CAF5",
+    "Icon": "#000000"
+  }
+}
